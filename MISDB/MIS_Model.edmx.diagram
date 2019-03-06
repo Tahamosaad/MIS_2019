@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e1a57066c9f489db29fafa7152c865e" Name="Diagram1">
+        <EntityTypeShape EntityType="JEDMISDBModel.C__CostAddOns" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__Forecast" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__ItemsLocations" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__ItemsTransAccounts" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__ItemsUpdatedQtys" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__PurchaseOrderQutDtl" Width="1.5" PointX="18.75" PointY="64.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccJournalCC" Width="1.5" PointX="5.25" PointY="76.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccJournalDtl" Width="1.5" PointX="10.5" PointY="84.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccJournalHdr" Width="1.5" PointX="8.25" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Accounts" Width="1.5" PointX="8.25" PointY="101.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccountsBudget" Width="1.5" PointX="10.5" PointY="103.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccountsCCD" Width="1.5" PointX="10.5" PointY="90.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccTransTypes" Width="1.5" PointX="6" PointY="73.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccTypes" Width="1.5" PointX="6" PointY="96.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Banks" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.BranchCodes" Width="1.5" PointX="6" PointY="98.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Closing" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Comments" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostCenters" Width="1.5" PointX="3" PointY="80.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostCentersBudget" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostingDtl" Width="1.5" PointX="13.5" PointY="154.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostingHdr" Width="1.5" PointX="8.25" PointY="153.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostItems" Width="1.5" PointX="11.25" PointY="164.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Countries" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Currencies" Width="1.5" PointX="17.25" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Dic" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.dtproperties" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.EmpCategories" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.EventsHdr" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ExpensesRequestsDtl" Width="1.5" PointX="21.75" PointY="77.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ExpensesRequestsHdr" Width="1.5" PointX="13.5" PointY="82.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ForecastColl" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ForecastSal" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Glossary" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.InvTransTypes" Width="1.5" PointX="8.25" PointY="158.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemCategory1" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemCategory2" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemCategory3" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemCategory4" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemRequestDtl" Width="1.5" PointX="12.75" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemRequestHdr" Width="1.5" PointX="10.5" PointY="93.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Items" Width="1.5" PointX="12.75" PointY="117.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsClasses" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsDirectory" Width="1.5" PointX="10.5" PointY="115.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemSerials" Width="1.5" PointX="15.75" PointY="119.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsGroups" Width="1.5" PointX="10.5" PointY="136.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsInOutExp" Width="1.5" PointX="15" PointY="124.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsInOutH" Width="1.5" PointX="10.5" PointY="155.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsInOutL" Width="1.5" PointX="12.75" PointY="123.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsMPG" Width="1.5" PointX="8.25" PointY="120" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsMPGCategory" Width="1.5" PointX="6" PointY="120.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsRelated" Width="1.5" PointX="12.75" PointY="132.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Manufacturers" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Objects" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ObjectsDtl" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.OtherCategories" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PayablesAccDtl" Width="1.5" PointX="24.75" PointY="85.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PayablesCC" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PayablesHdr" Width="1.5" PointX="16.5" PointY="83" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PayablesPurDtl" Width="1.5" PointX="24.75" PointY="81.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PayMethods" Width="1.5" PointX="14.25" PointY="99.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Persons" Width="1.5" PointX="8.25" PointY="78.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PersonsGroups" Width="1.5" PointX="0.75" PointY="85.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PersonsGroupsDtl" Width="1.5" PointX="3" PointY="85.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PersonsRequests" Width="1.5" PointX="5.25" PointY="82.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PersonTypes" Width="1.5" PointX="6" PointY="79.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PmtApproveAccDtl" Width="1.5" PointX="30" PointY="93.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PmtApproveHdr" Width="1.5" PointX="24.75" PointY="89.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PmtApprovePurDtl" Width="1.5" PointX="30" PointY="85.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PORequestDtl" Width="1.5" PointX="12.75" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PORequestHdr" Width="1.5" PointX="10.5" PointY="76.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Posting" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurAcknowledgementsDtl" Width="1.5" PointX="22" PointY="69" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurAcknowledgementsHdr" Width="1.5" PointX="13.5" PointY="76" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseAccDtl" Width="1.5" PointX="21.75" PointY="93.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseCC" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseDtl" Width="1.5" PointX="24.75" PointY="73.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseHdr" Width="1.5" PointX="19.5" PointY="81.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseOrderDtl" Width="1.5" PointX="18.75" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseOrderHdr" Width="1.5" PointX="16.5" PointY="69.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseReturnAccDtl" Width="1.5" PointX="12.75" PointY="148.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseReturnCC" Width="1.5" PointX="11.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseReturnDtl" Width="1.5" PointX="27" PointY="111.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchaseReturnHdr" Width="1.5" PointX="10.5" PointY="146.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurQuotationsDtl" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurQuotationsHdr" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurShipmentsBrnDist" Width="1.5" PointX="27" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurShipmentsDtl" Width="1.5" PointX="27.75" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurShipmentsHdr" Width="1.5" PointX="25.5" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurShipmentsInv" Width="1.5" PointX="27.75" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurShipmentsItems" Width="1.5" PointX="27" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurShippers" Width="1.5" PointX="14.25" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurVendorCategories" Width="1.5" PointX="5.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ReceivablesAccDtl" Width="1.5" PointX="21.75" PointY="107.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ReceivablesCC" Width="1.5" PointX="16.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ReceivablesHdr" Width="1.5" PointX="19.5" PointY="107.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ReceivablesInvDtl" Width="1.5" PointX="21.75" PointY="99.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ReservationDtl" Width="1.5" PointX="15.75" PointY="116.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ReservationHdr" Width="1.5" PointX="13.5" PointY="112.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalCustomerCategories" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalDeliveryMethods" Width="1.5" PointX="20.25" PointY="103.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesDiscDtl" Width="1.5" PointX="32.25" PointY="89.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesDtl" Width="1.5" PointX="30" PointY="89.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesHdr" Width="1.5" PointX="16.5" PointY="92" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesOrderDtl" Width="1.5" PointX="27.75" PointY="80" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesOrderHdr" Width="1.5" PointX="22.5" PointY="81.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesReturnDtl" Width="1.5" PointX="32.25" PointY="92.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesReturnHdr" Width="1.5" PointX="27.75" PointY="89.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalQuotationsDtl" Width="1.5" PointX="21.75" PointY="73.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalQuotationsHdr" Width="1.5" PointX="19.5" PointY="69.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ScmPeriods" Width="1.5" PointX="17.25" PointY="102.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ScmQuota" Width="1.5" PointX="21.75" PointY="96.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ScmRatiosDtl" Width="1.5" PointX="12.75" PointY="136.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ScmRatiosHdr" Width="1.5" PointX="10.5" PointY="186.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ScmSalesMen" Width="1.5" PointX="19.5" PointY="93.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ServiceOrderDtl" Width="1.5" PointX="30" PointY="100" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ServiceOrderHdr" Width="1.5" PointX="27.75" PointY="96.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ServiceTypes" Width="1.5" PointX="25.5" PointY="100" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ShipMethods" Width="1.5" PointX="23.25" PointY="59.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ssGHDates" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ssIntervals" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.StockItems" Width="1.5" PointX="17.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Stores" Width="1.5" PointX="8.25" PointY="162.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.sysdiagrams" Width="1.5" PointX="17.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.System" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Terms" Width="1.5" PointX="17.25" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TransStatus" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Um_AlQura" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UserRights" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Users" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__POTransDtl" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__POTransHdr" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.MIS_LOG" Width="1.5" PointX="11.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UsersRecent" Width="1.5" PointX="19.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__FrmPmtPASSource" Width="1.5" PointX="19.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__ItemsInTransByDate" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__ItemsOnHndQtyByDate" Width="1.5" PointX="20.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__ItemsOpenPI_ByDate" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.C__RepOMTNAllMRN_SameBranch" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccountsByMonthActual" Width="1.5" PointX="5.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.AccountsByMonthBudget" Width="1.5" PointX="21.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.BranchStockItems" Width="1.5" PointX="21.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CollectionByMonth" Width="1.5" PointX="21.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostCenterByMonth" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CostCenterByMonthBudget" Width="1.5" PointX="22.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.CustomerAging" Width="1.5" PointX="22.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ForecastByMonth" Width="1.5" PointX="11.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ForecastCollection" Width="1.5" PointX="13.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ForecastQry" Width="1.5" PointX="15.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.FourSeasons" Width="1.5" PointX="17.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.GeneralAccounts" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.InTransit_Items_Today" Width="1.5" PointX="7.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsBrnQtys" Width="1.5" PointX="23.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsOnHndQty" Width="1.5" PointX="23.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsReserved" Width="1.5" PointX="23.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.mobileV" Width="1.5" PointX="23.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.MTNall" Width="1.5" PointX="0.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.MTNopen" Width="1.5" PointX="2.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.MTNOpenSum" Width="1.5" PointX="24.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.NonStockItems" Width="1.5" PointX="4.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.OpenPIitems" Width="1.5" PointX="24.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.OpenPOitems" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.OpenSIItems" Width="1.5" PointX="19.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.OpenSOItems" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurchasesVend" Width="1.5" PointX="9.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurOrdersDetails" Width="1.5" PointX="25.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.PurReturnQty" Width="1.5" PointX="25.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepItemCardBal" Width="1.5" PointX="25.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepItemsList" Width="1.5" PointX="21.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepOTNAllMRN" Width="1.5" PointX="23.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepOTNAllMRN_Today" Width="1.5" PointX="25.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepPurchaseItemsDetails" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepSalesByCategories" Width="1.5" PointX="6.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.RepSalesRetByCategories" Width="1.5" PointX="11.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalCustBalances" Width="1.5" PointX="26.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Sales_ReturnsByMonth" Width="1.5" PointX="13.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesByMonth" Width="1.5" PointX="15.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesCust" Width="1.5" PointX="27.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesOutStanding" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalesRetByMonth" Width="1.5" PointX="2.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.SalReturnQty" Width="1.5" PointX="27.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3035413733324533" Width="1.5" PointX="27.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3138463441323746" Width="1.5" PointX="27.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3141343536464137" Width="1.5" PointX="17.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3144453736323446" Width="1.5" PointX="27.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3235454438453643" Width="1.5" PointX="27.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3238354642323537" Width="1.5" PointX="27.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3243313132384446" Width="1.5" PointX="28.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3245443242373334" Width="1.5" PointX="28.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3337373339393438" Width="1.5" PointX="8.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3339464530413846" Width="1.5" PointX="29.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3432314238463244" Width="1.5" PointX="29.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3532333632443445" Width="1.5" PointX="13.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3539354544443837" Width="1.5" PointX="29.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3633303837313642" Width="1.5" PointX="29.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3633464344424334" Width="1.5" PointX="23.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3636374642344542" Width="1.5" PointX="25.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3733353441304439" Width="1.5" PointX="29.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3742394242333936" Width="1.5" PointX="27.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3838344144343631" Width="1.5" PointX="29.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3841453234364635" Width="1.5" PointX="2.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3935313934393844" Width="1.5" PointX="30.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3943344533363438" Width="1.5" PointX="30.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3943443330303345" Width="1.5" PointX="15.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3944363033313231" Width="1.5" PointX="17.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x3945433832454435" Width="1.5" PointX="31.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4131384639453744" Width="1.5" PointX="4.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4238363741423836" Width="1.5" PointX="6.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4241354537313931" Width="1.5" PointX="8.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4331454430354131" Width="1.5" PointX="31.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4338364632314631" Width="1.5" PointX="10.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4443313443414535" Width="1.5" PointX="31.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4530443043303932" Width="1.5" PointX="31.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4531324243434639" Width="1.5" PointX="31.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4533463634364435" Width="1.5" PointX="19.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4631413631364339" Width="1.5" PointX="31.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4634393646463839" Width="1.5" PointX="32.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4635424331323344" Width="1.5" PointX="32.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4638343243314641" Width="1.5" PointX="12.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4643354637423342" Width="1.5" PointX="33.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.syncobj_0x4646413742393936" Width="1.5" PointX="0.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpAccState" Width="1.5" PointX="33.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmAccounts" Width="1.5" PointX="14.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmBranches" Width="1.5" PointX="33.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmCosting" Width="1.5" PointX="16.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmCostingSS_dbcVoucherNum" Width="1.5" PointX="33.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmCostingSS_LCost" Width="1.5" PointX="33.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmCostingSS_LCostItems" Width="1.5" PointX="2.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmCustomers" Width="1.5" PointX="4.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmEmployees" Width="1.5" PointX="34.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmItems" Width="1.5" PointX="18.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmItemsBrnQty" Width="1.5" PointX="20.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmItemsDirectory" Width="1.5" PointX="25.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmItemsInOutH" Width="1.5" PointX="27.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmJournalSS_LinesRowSource" Width="1.5" PointX="29.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmLinkInventoryCmdLink" Width="1.5" PointX="35.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmLinkInventorySales" Width="1.5" PointX="35.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmOpenOrdersDatLines" Width="1.5" PointX="35.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmOthers" Width="1.5" PointX="35.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPayables" Width="1.5" PointX="35.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPayablesSS_lines2RowSource" Width="1.5" PointX="35.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchase" Width="1.5" PointX="36.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchaseOrder" Width="1.5" PointX="6.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchaseOrderSS_Lines1RowSource" Width="1.5" PointX="8.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchaseReturn" Width="1.5" PointX="10.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchaseSS_DbcOrderNumRowSource" Width="1.5" PointX="22.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchaseSS_Line1ItemCodeRowSource" Width="1.5" PointX="35.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmPurchaseSS_Line1RowSource" Width="1.5" PointX="37.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmReceivables" Width="1.5" PointX="37.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmReceivablesSS_Lines2" Width="1.5" PointX="37.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmReservation" Width="1.5" PointX="37.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSales" Width="1.5" PointX="37.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesLines" Width="1.5" PointX="31.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesOrders" Width="1.5" PointX="37.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesOrdersSS_lines1RowSource" Width="1.5" PointX="38.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesReturn" Width="1.5" PointX="0.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesReturnSS_DbcSaleNumValidatePmt" Width="1.5" PointX="38.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesReturnSS_Lines1ItemCodeRowSource" Width="1.5" PointX="39.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesReturnsSS_Lines1RowSource" Width="1.5" PointX="39.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesSS_dbcOrderNumRowSource" Width="1.5" PointX="12.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesSS_dbcOrderNumservice" Width="1.5" PointX="14.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalesSS_Lines1RowSource" Width="1.5" PointX="39.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmSalOpenQuots" Width="1.5" PointX="39.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmServiceOrders" Width="1.5" PointX="20.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmServiceOrdersCmdSerialHistory" Width="1.5" PointX="22.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmVendors" Width="1.5" PointX="39.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmVouchersSS_DBCTransNumRowSource" Width="1.5" PointX="39.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmVouchersSS_Lines1ItemCodeRowSource" Width="1.5" PointX="33.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpFrmVouchersSS_Lines1RowSource" Width="1.5" PointX="39.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpGrossProfitInv" Width="1.5" PointX="40.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpPmtList" Width="1.5" PointX="16.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpPurVendStatment" Width="1.5" PointX="27.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccChart" Width="1.5" PointX="39.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccJournal" Width="1.5" PointX="41.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccJournalDtl" Width="1.5" PointX="41.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccountTB" Width="1.5" PointX="41.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccountTBBegBal" Width="1.5" PointX="41.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccountTBGrpBegBal" Width="1.5" PointX="41.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccountTBGrpTrans" Width="1.5" PointX="29.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccPersonState" Width="1.5" PointX="41.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccStatment" Width="1.5" PointX="41.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccTransSummary" Width="1.5" PointX="8.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccVSCost" Width="1.5" PointX="42.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAccVSCostNoCC" Width="1.5" PointX="10.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepAdjSerials" Width="1.5" PointX="12.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepBalanceSheet" Width="1.5" PointX="24.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepBalanceSheetInv" Width="1.5" PointX="2.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCCStatment" Width="1.5" PointX="43.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCCTrialBalance" Width="1.5" PointX="43.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCollectionActual" Width="1.5" PointX="43.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCollectionForecast" Width="1.5" PointX="43.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCollectionUnionForecast" Width="1.5" PointX="43.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCollectionVsForecast" Width="1.5" PointX="43.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCollPerformance" Width="1.5" PointX="43.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCompanyStatusCRET" Width="1.5" PointX="31.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCompanyStatusPUR" Width="1.5" PointX="33.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCompanyStatusSAL" Width="1.5" PointX="43.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCompanyStatusVRET" Width="1.5" PointX="43.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepCreditSalesRatio" Width="1.5" PointX="43.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepForecast" Width="1.5" PointX="44.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepGrossProfit" Width="1.5" PointX="45.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepGrossProfitBeg" Width="1.5" PointX="45.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepInvoice" Width="1.5" PointX="45.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemBalByCost" Width="1.5" PointX="45.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemCard" Width="1.5" PointX="45.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemCardByCost" Width="1.5" PointX="45.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemCostSummary" Width="1.5" PointX="45.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsBalByCat" Width="1.5" PointX="45.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsBalBySerials" Width="1.5" PointX="43.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsCostSheet" Width="1.5" PointX="45.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsCostSum" Width="1.5" PointX="46.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsCostSumExp" Width="1.5" PointX="22.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemSerialHistory" Width="1.5" PointX="24.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsInOut" Width="1.5" PointX="26.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsNonMoving" Width="1.5" PointX="28.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsNonMovingBal" Width="1.5" PointX="33.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsOpenMTN" Width="1.5" PointX="39.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsOpenMTNOld" Width="1.5" PointX="0.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsProfit" Width="1.5" PointX="2.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsReorder" Width="1.5" PointX="47.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsTrialBalance" Width="1.5" PointX="47.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsTrialBalanceBO" Width="1.5" PointX="47.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsTrialBalByCostBeg" Width="1.5" PointX="47.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsTrialBalByCostTrans" Width="1.5" PointX="47.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemsVchrCost" Width="1.5" PointX="47.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemTransSummary" Width="1.5" PointX="47.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepItemTransSummaryBal" Width="1.5" PointX="30.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPersonsTB" Width="1.5" PointX="35.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPersonsTBBegBal" Width="1.5" PointX="47.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPersonsTBTrans" Width="1.5" PointX="47.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPmtVoucher" Width="1.5" PointX="47.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPOOpen" Width="1.5" PointX="4.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepProfitAndLoss" Width="1.5" PointX="48.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurchaseItemsDetails" Width="1.5" PointX="6.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurchaseOrderForm" Width="1.5" PointX="8.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurDeliveryDetails" Width="1.5" PointX="19.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurDetails" Width="1.5" PointX="49.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurOpOrdersItems" Width="1.5" PointX="49.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurOrdersDetails" Width="1.5" PointX="10.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurOrdersItemsDetails" Width="1.5" PointX="12.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurOrdersSummary" Width="1.5" PointX="49.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurOutStandingInvoices" Width="1.5" PointX="49.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurOutStandingInvoicesBal" Width="1.5" PointX="21.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurReturnDtl" Width="1.5" PointX="49.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurReturnSum" Width="1.5" PointX="32.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurSummary" Width="1.5" PointX="49.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepPurVendList" Width="1.5" PointX="49.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepRcvList" Width="1.5" PointX="41.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepRsvDtl" Width="1.5" PointX="49.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepRsvSum" Width="1.5" PointX="49.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalATBCollFC" Width="1.5" PointX="51.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalATBCollFCBal" Width="1.5" PointX="51.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalATBCollFCRet" Width="1.5" PointX="51.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalBrnNetinterval" Width="1.5" PointX="51.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalCollectionDelay" Width="1.5" PointX="51.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalCustList" Width="1.5" PointX="51.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalCustomerSoldItems" Width="1.5" PointX="51.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalCustSerials" Width="1.5" PointX="51.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalCustState" Width="1.5" PointX="51.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalCustTrnsSum" Width="1.5" PointX="51.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalDlvryNote" Width="1.5" PointX="49.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesBackOrders" Width="1.5" PointX="51.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesByBranchSummary" Width="1.5" PointX="0.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesByCategories" Width="1.5" PointX="27.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesDetails" Width="1.5" PointX="34.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesForecastRatio" Width="1.5" PointX="36.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesInvoice" Width="1.5" PointX="38.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesIssuedItems" Width="1.5" PointX="53.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesItemsDetails" Width="1.5" PointX="53.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesItemsSummary" Width="1.5" PointX="53.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesItemsTotal" Width="1.5" PointX="53.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesmenCommissions" Width="1.5" PointX="53.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesOrderForm" Width="1.5" PointX="53.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesPrevRatio" Width="1.5" PointX="21.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesRetByCategory" Width="1.5" PointX="53.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalesSummary" Width="1.5" PointX="43.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalOrdersDetails" Width="1.5" PointX="53.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalOrdersSummary" Width="1.5" PointX="53.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalOutStandingInvoices" Width="1.5" PointX="29.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalOutStandingInvoicesBal" Width="1.5" PointX="31.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalOutStandingItems" Width="1.5" PointX="55.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalReturnDtl" Width="1.5" PointX="2.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSalReturnSum" Width="1.5" PointX="4.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepServiceOrder" Width="1.5" PointX="55.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSrvOrdersDetails" Width="1.5" PointX="55.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepSrvOrdersSummary" Width="1.5" PointX="55.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepTotItemTrans" Width="1.5" PointX="55.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TmpRepWarrantyClaim" Width="1.5" PointX="55.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.TransQty" Width="1.5" PointX="55.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UNION" Width="1.5" PointX="40.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UpdateBrnQtys" Width="1.5" PointX="55.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UpdateStockQtys" Width="1.5" PointX="55.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UpdateStockQtysUnion" Width="1.5" PointX="55.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VendPurchases" Width="1.5" PointX="55.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.View_1" Width="1.5" PointX="55.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.View_2" Width="1.5" PointX="10.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW1" Width="1.5" PointX="12.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW10" Width="1.5" PointX="51.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW11" Width="1.5" PointX="57.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW12" Width="1.5" PointX="57.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW13" Width="1.5" PointX="14.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW2" Width="1.5" PointX="19.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW3" Width="1.5" PointX="57.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW4" Width="1.5" PointX="57.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW5" Width="1.5" PointX="57.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW6" Width="1.5" PointX="57.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW7" Width="1.5" PointX="57.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW8" Width="1.5" PointX="57.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.VIEW9" Width="1.5" PointX="57.75" PointY="34.75" IsExpanded="true" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderQutDtl_PurchaseOrderHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccJournalCls_CostCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccJournalDtl_AccJournalHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccJournalDtl_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccJournalDtl_CurrenciesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccJournalDtl_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccJournalHdr_AccTransTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Accounts_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Accounts_Accounts1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Accounts_AccTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Accounts_BranchCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccountsBudget_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccountsCCD_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ExpensesRequestsDtl_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesAccDtl_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesHdr_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApproveAccDtl_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReceivablesAccDtl_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_AccountsCCD_CostCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_CostCenters_CostCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PersonsRequests_CostCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_CostingDtl_CostElements" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_CostingDtl_CostingHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsDirectory_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurAcknowledgementsHdr_CurrenciesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderHdr_CurrenciesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseRequestHdr_CurrenciesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderHdr_CurrenciesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalQuotationsHdr_CurrenciesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ExpensesRequestsDtl_ExpensesRequestesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ExpensesRequestesHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ExpensesRequestesHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutH_InvTransTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemCategory2_ItemCategory1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemCategory3_ItemCategory2" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemCategory4_ItemCategory3" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemRequestDtl_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemRequestDtl_SalesOrderDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_STKRequestDtl_STKRequestHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_STKRequestHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Items_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsDirectory_ItemsMPG" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemSerials_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutL_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsRelated_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsRelated_ItemsDirectory1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReservationDtl_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrderDtl_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrderHdr_ItemsDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemSerials_ItemsInOutL" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ScmRatios_ItemsGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutExp_ItemsInOutL" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutH_Stores" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutL_ItemsInOutH" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsMPG_ItemsMPGCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_UserRights_Objects" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesAccDtl_PayablesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesHdr_PayMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesPurDtl_PayablesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PayablesPurDtl_PurchaseHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApproveHdr_PayMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReceivablesHdr_PayMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Persons_PersonsGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Persons_PersonsGroupsDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_Persons_PersonTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApproveHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurAcknowledgementsHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseRequestHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseRequestHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseReturnHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseReturnHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalCommsSalesMen_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesReturnHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesReturnHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalQuotationsHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalQuotationsHdr_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ScmRatiosHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrder_Persons1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrderHdr_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PersonsGroupsDtl_PersonsGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PersonsRequests_PersonsGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ScmRatios_PersonsGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PersonsRequests_PersonsGroupsDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApproveAccDtl_PmtApproveHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApprovePurDtl_PmtApproveHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApprovePurDtl_PurchaseHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PmtApprovePurDtl_PurchaseHdr1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PORequestDtl_SalesOrderDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseRequestDtl_PurchaseRequestHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseRequestHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurAcknowledgementsDtl_PurAcknowledgementsHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurAcknowledgementsDtl_PurchaseOrderDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseAccDtl_PurchaseHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseDtl_PurchaseHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseDtl_PurchaseOrderDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseReturnDtl_PurchaseDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurShipmentsBrnDist_PurchaseDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurShipmentsItems_PurchaseDtl1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseHdr_PurShippers" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurShipmentsInv_PurchaseHdr1" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderDtl_PurchaseOrderHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderHdr_PurShipMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseOrderHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseReturnAccDtl_PurchaseReturnHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurchaseReturnDtl_PurchaseReturnHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurShipmentsDtl_PurShipmentsHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurShipmentsHdr_ShipMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_PurShipmentsInv_PurShipmentsHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReceivablesAccDtl_ReceivablesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReceivablesInvDtl_ReceivablesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReceivablesInvDtl_SalesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ReservationDtl_ReservationHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderHdr_SalDeliveryMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesDiscDtl_SalesDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesDtl_SalesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesDtl_SalesOrderDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesReturnDtl_SalesDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesReturnHdr_SalesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrderHdr_SalesHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderDtl_SalesOrderHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderDtl_SalQuotationsDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesOrderHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalesReturnDtl_SalesReturnHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalQuotationsDtl_SalQuotationsHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalQuotationsHdr_Terms" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalCommsSalesMen_SalCommsPeriods" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_SalCommsQuota_SalCommsSalesMen" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ScmRatiosDtl_ScmRatiosHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrderDtl_ServiceOrderHdr" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ServiceOrderHdr_ServiceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_UserRights_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.CostingVch" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.EventsDtl" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.PayablesPAS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

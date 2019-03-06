@@ -1,0 +1,1391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{167BB8CA-D048-41BD-8025-383B4BEB69BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MISDB</RootNamespace>
+    <AssemblyName>MISDB</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccJournalCC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccJournalDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccJournalHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsBudget.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsByMonthActual.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsByMonthBudget.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsCCD.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccTransTypes.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccTypes.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Banks.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchCodes.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchStockItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Closing.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CollectionByMonth.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenterByMonth.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenterByMonthBudget.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenters.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCentersBudget.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostingDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostingHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Countries.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currencies.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAging.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__CostAddOns.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__Forecast.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__FrmPmtPASSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__ItemsInTransByDate.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__ItemsLocations.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__ItemsOnHndQtyByDate.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__ItemsOpenPI_ByDate.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__ItemsTransAccounts.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__ItemsUpdatedQtys.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__POTransDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__POTransHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__PurchaseOrderQutDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__RepOMTNAllMRN_SameBranch.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dic.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperties.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dt_getpropertiesbyid_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dt_getpropertiesbyid_u_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventsHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesRequestsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesRequestsHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForecastByMonth.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForecastColl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForecastCollection.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForecastQry.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForecastSal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FourSeasons.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f__PriceList_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f__SP_EPSON_CUSTOMERS_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f__SP_EPSON_SALES_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f__SP_EPSON_STOCK_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f__SP_RepItemsInTransByDate_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f__Stock_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralAccounts.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Glossary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InTransit_Items_Today.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvTransTypes.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCategory1.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCategory2.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCategory3.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCategory4.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemRequestDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemRequestHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Items.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsBrnQtys.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsClasses.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsDirectory.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemSerials.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsGroups.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsInOutExp.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsInOutH.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsInOutL.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsMPG.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsMPGCategory.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsOnHndQty.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsRelated.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsReserved.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Manufacturers.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MIS_LOG.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MIS_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MIS_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MIS_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MIS_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MIS_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="mobileV.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTNall.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTNopen.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTNOpenSum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NonStockItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenPIitems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenPOitems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenSIItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenSOItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OtherCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayablesAccDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayablesCC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayablesHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayablesPurDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayMethods.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persons.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonsGroups.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonsGroupsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonsRequests.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonTypes.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PmtApproveAccDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PmtApproveHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PmtApprovePurDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PORequestDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PORequestHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Posting.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceList_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurAcknowledgementsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurAcknowledgementsHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseAccDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseCC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReturnAccDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReturnCC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReturnDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReturnHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasesVend.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurOrdersDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurQuotationsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurQuotationsHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurReturnQty.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurShipmentsBrnDist.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurShipmentsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurShipmentsHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurShipmentsInv.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurShipmentsItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurShippers.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurVendorCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivablesAccDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivablesCC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivablesHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivablesInvDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepItemCardBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepItemsList.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepOTNAllMRN.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepOTNAllMRN_Today.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepPurchaseItemsDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepSalesByCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepSalesRetByCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepSalesStkTrnFC_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepSalFCItemsCol_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalCustBalances.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalCustomerCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalDeliveryMethods.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByMonth.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesCust.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDiscDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOrderDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOrderHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOutStanding.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRetByMonth.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesReturnDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesReturnHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sales_ReturnsByMonth.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalQuotationsDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalQuotationsHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalReturnQty.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScmPeriods.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScmQuota.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScmRatiosDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScmRatiosHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScmSalesMen.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceOrderDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceOrderHdr.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceTypes.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipMethods.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ssGHDates.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ssIntervals.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stores.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3035413733324533.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3138463441323746.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3141343536464137.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3144453736323446.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3235454438453643.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3238354642323537.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3243313132384446.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3245443242373334.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3337373339393438.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3339464530413846.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3432314238463244.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3532333632443445.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3539354544443837.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3633303837313642.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3633464344424334.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3636374642344542.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3733353441304439.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3742394242333936.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3838344144343631.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3841453234364635.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3935313934393844.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3943344533363438.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3943443330303345.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3944363033313231.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x3945433832454435.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4131384639453744.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4238363741423836.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4241354537313931.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4331454430354131.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4338364632314631.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4443313443414535.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4530443043303932.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4531324243434639.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4533463634364435.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4631413631364339.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4634393646463839.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4635424331323344.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4638343243314641.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4643354637423342.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="syncobj_0x4646413742393936.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="System.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Terms.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test1_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test2_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test3_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestCR_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestPrm_Result.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpAccState.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmAccounts.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmBranches.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmCosting.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmCostingSS_dbcVoucherNum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmCostingSS_LCost.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmCostingSS_LCostItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmCustomers.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmEmployees.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmItemsBrnQty.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmItemsDirectory.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmItemsInOutH.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmJournalSS_LinesRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmLinkInventoryCmdLink.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmLinkInventorySales.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmOpenOrdersDatLines.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmOthers.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPayables.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPayablesSS_lines2RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchase.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchaseOrder.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchaseOrderSS_Lines1RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchaseReturn.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchaseSS_DbcOrderNumRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchaseSS_Line1ItemCodeRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmPurchaseSS_Line1RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmReceivables.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmReceivablesSS_Lines2.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmReservation.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSales.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesLines.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesOrders.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesOrdersSS_lines1RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesReturn.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesReturnsSS_Lines1RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesReturnSS_DbcSaleNumValidatePmt.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesReturnSS_Lines1ItemCodeRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesSS_dbcOrderNumRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesSS_dbcOrderNumservice.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalesSS_Lines1RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmSalOpenQuots.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmServiceOrders.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmServiceOrdersCmdSerialHistory.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmVendors.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmVouchersSS_DBCTransNumRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmVouchersSS_Lines1ItemCodeRowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpFrmVouchersSS_Lines1RowSource.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpGrossProfitInv.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpPmtList.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpPurVendStatment.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccChart.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccJournal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccJournalDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccountTB.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccountTBBegBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccountTBGrpBegBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccountTBGrpTrans.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccPersonState.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccStatment.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccTransSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccVSCost.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAccVSCostNoCC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepAdjSerials.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepBalanceSheet.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepBalanceSheetInv.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCCStatment.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCCTrialBalance.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCollectionActual.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCollectionForecast.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCollectionUnionForecast.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCollectionVsForecast.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCollPerformance.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCompanyStatusCRET.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCompanyStatusPUR.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCompanyStatusSAL.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCompanyStatusVRET.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepCreditSalesRatio.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepForecast.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepGrossProfit.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepGrossProfitBeg.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepInvoice.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemBalByCost.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemCard.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemCardByCost.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemCostSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsBalByCat.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsBalBySerials.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsCostSheet.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsCostSum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsCostSumExp.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemSerialHistory.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsInOut.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsNonMoving.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsNonMovingBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsOpenMTN.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsOpenMTNOld.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsProfit.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsReorder.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsTrialBalance.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsTrialBalanceBO.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsTrialBalByCostBeg.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsTrialBalByCostTrans.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemsVchrCost.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemTransSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepItemTransSummaryBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPersonsTB.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPersonsTBBegBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPersonsTBTrans.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPmtVoucher.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPOOpen.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepProfitAndLoss.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurchaseItemsDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurchaseOrderForm.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurDeliveryDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurOpOrdersItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurOrdersDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurOrdersItemsDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurOrdersSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurOutStandingInvoices.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurOutStandingInvoicesBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurReturnDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurReturnSum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepPurVendList.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepRcvList.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepRsvDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepRsvSum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalATBCollFC.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalATBCollFCBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalATBCollFCRet.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalBrnNetinterval.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalCollectionDelay.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalCustList.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalCustomerSoldItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalCustSerials.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalCustState.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalCustTrnsSum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalDlvryNote.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesBackOrders.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesByBranchSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesByCategories.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesForecastRatio.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesInvoice.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesIssuedItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesItemsDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesItemsSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesItemsTotal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesmenCommissions.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesOrderForm.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesPrevRatio.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesRetByCategory.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalesSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalOrdersDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalOrdersSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalOutStandingInvoices.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalOutStandingInvoicesBal.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalOutStandingItems.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalReturnDtl.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSalReturnSum.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepServiceOrder.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSrvOrdersDetails.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepSrvOrdersSummary.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepTotItemTrans.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpRepWarrantyClaim.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransQty.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransStatus.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Um_AlQura.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UNION.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateBrnQtys.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStockQtys.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStockQtysUnion.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRights.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersRecent.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendPurchases.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW1.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW10.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW11.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW12.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW13.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW2.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW3.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW4.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW5.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW6.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW7.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW8.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW9.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_1.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_2.cs">
+      <DependentUpon>MIS_Model.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="MIS_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MIS_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="MIS_Model.edmx.diagram">
+      <DependentUpon>MIS_Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MIS_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MIS_Model.Context.cs</LastGenOutput>
+      <DependentUpon>MIS_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="MIS_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MIS_Model.edmx</DependentUpon>
+      <LastGenOutput>MIS_Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,229 @@
+﻿@model MIS_2019.Models.Paramters
+
+@{
+    ViewBag.Title = "ViewReport";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<h2>ViewReport</h2>
+@if (@TempData["error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["error"]
+    </div>
+}
+
+<form name="form1"  id="form1">
+    <div class="form-horizontal">
+
+
+        <table class="table1 ">
+            <thead>
+                <tr>
+                    <td id="lblTitle" class="style1" colspan="5" align="justify">
+                        
+                        <span  style="display:inline-block;color:Sienna;background-color:Transparent;font-size:X-Large;font-weight:bold;font-style:italic;height:19px;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1" align="justify" colspan="5">
+                        <span id="Label3"  style="display:inline-block;color:Sienna;background-color:Transparent;font-family:Arial;font-size:12pt;font-weight:bold;font-style:normal;width:32px;">ID:</span>
+                        @*@Html.LabelFor(model => model.ReportID, htmlAttributes: new { @class = "control-label col-md-2", id = "txtRepID" })*@
+                        <span id="txtRepID" style="color:Sienna;font-family:Arial;font-size:12pt;font-weight:bold;"></span>
+
+                      </td>
+                </tr>
+                <tr>
+                    <td colspan="5" align="justify">
+
+                        <span id="Label2" style="background-color:Transparent;font-family:Arial;">
+                            Specify the search criteria,then click <b>Run</b> button:
+                        </span>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr>
+                    <td align="justify">
+                        <span>select Field</span>
+                    </td>
+
+                    <td>
+                        <div class="dropdown">
+                            @*@Html.DropDownList("operation","select op")*@
+                       @*    @Html.DropDownList("optionName", ViewBag.Categories as IEnumerable<SelectListItem>)*@
+
+                        </div>
+                        <select name="ddlFields" id="ddlFields" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;height:22px;width:30%;position: static; height: 22px;">
+                            <option value="Select"> Select</option>
+
+                        </select>
+
+                        <select name="ddlOps" id="ddlOps" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;position: static;">
+                            <option value="=">=</option>
+                            <option value=">">&gt;</option>
+                            <option value=">=">&gt;=</option>
+                            <option value="<">&lt;</option>
+                            <option value="<=">&lt;=</option>
+                            <option value="<>">&lt;&gt;</option>
+                            <option value="Like">Like</option>
+
+                        </select>
+
+                        <input type="text" id="txtValue" style="width:30%;position: static; height: 22px;">
+                        @*@Html.TextBoxFor( x => x.CriteriaCap, new {@name = "txtValue", @id = "txtValue", @class =  "form-control", @style = "width:30%;position: static; height: 22px;" })*@
+                        <img id="BtnSearch" onclick="OpenPopup();" height="22" alt="" src="~/Images/Search.gif" width="24" style="cursor: hand">
+
+                        <select name="ddlLink" id="ddlLink" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;width:68px;position: static;">
+                            <option value="AND">AND</option>
+                            <option value="OR">OR</option>
+
+                        </select>
+                    </td>
+
+                    <td align="justify">
+                        <input name="btnAdd" type="button" id="btnAdd" value="Add Line" onclick="'httpGet(http://localhost:61862/Report/GetAll);'" style="height: 25px; width: 63px">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td align="justify">
+                        <select size="4" name="lstCriteria" id="lstCriteria" style="height:120px;width:474px;position: static;">
+                            <option value="Item Code = 09010101-109 AND">Item Code = 09010101-109 AND</option>
+
+                        </select>
+                    </td>
+                    <td valign="top" align="justify">
+                        <input name="BtnDel" type="submit" id="BtnDel" value="Remove" onclick="UserAction();" style="height: 25px; width: 64px">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+
+                    <td align="justify">
+                        <select name="ddlDest" id="ddlDest">
+                            <option selected="selected" value="0">Preview</option>
+                            <option value="1">Export PDF</option>
+                            <option value="2">Export Excel</option>
+                            <option value="3">Excel Data Only</option>
+                            <option value="4">Rich Text Format</option>
+                            <option value="5">Html</option>
+                            <option value="6">WinWord</option>
+                            <option value="7">Crystal Report</option>
+                            <option value="11">Print</option>
+
+                        </select>
+
+                        <select name="ddlSort" id="ddlSort">
+                            <option value=" "> </option>
+                            <option value="ASC">ASC</option>
+                            <option value="DESC">DESC</option>
+
+                        </select>
+                    </td>
+                    <td>
+                        <input name="btnGo" type="submit" id="btnGo" value="Run" onclick="OpenReport();" style="width: 64px">
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    @*@Ajax.ActionLink("All", "All",
+    new AjaxOptions
+    {
+        HttpMethod = "GET", // HttpMethod to use, GET or POST
+        UpdateTargetId = "divStudents", // ID of the HTML element to update
+        InsertionMode = InsertionMode.Replace // Replace the existing contents
+    })
+    <span style="color:Blue">|</span>*@
+
+</form>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<link href="~/Content/CitrusIsland.css" rel="stylesheet" type="text/css">
+<script src="~/Scripts/loadreport.js"></script>
+<script type="text/javascript">
+   
+    
+
+    $(function () {
+        $(".dropdown-menu li a").click(function () {
+            //alert();
+            console.log($(".dropdown-menu li a option:selected").index())
+            var name = $(this).text();
+            var obj = { ReportName: name };
+            $('#lblTitle span').text(name);
+            $('#txtRepID').text();
+            
+            AjaxCall('/Report/SetReport', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#ddlFields').html('');
+                    var options = '';
+                    options += '<option value="Select">Select</option>';
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i] + '">' + response[i] + '</option>';
+                    }
+                    $('#ddlFields').append(options);
+
+                }
+            }).fail(function (error) {
+                alert(error.StatusText);
+            });
+        });
+
+        //AjaxCall('/Report/GetCriteria', null).done(function (response) {
+        //    if (response.length > 0) {
+        //        $('#ddlFields').html('');
+        //        var options = '';
+        //        options += '<option value="Select">Select</option>';
+        //        for (var i = 0; i < response.length; i++) {
+        //            options += '<option value="' + response[i] + '">' + response[i] + '</option>';
+        //        }
+        //        $('#ddlFields').append(options);
+
+        //    }
+        //}).fail(function (error) {alert(error.StatusText);});
+
+        //$('#ddlFields').on("change", function () {
+        //    var criteria = $('#ddlFields').val();
+        //    var obj = { Criteria: criteria };
+        //    AjaxCall('/Report/GetOperation', JSON.stringify(obj), 'POST').done(function (response) {
+        //        if (response.length > 0) {
+        //            $('#ddlOps').html('');
+        //            var options = '';
+        //            options += '<option value="Select">Select</option>';
+        //            for (var i = 0; i < response.length; i++) {
+        //                options += '<option value="' + response[i] + '">' + response[i] + '</option>';
+        //            }
+        //            $('#ddlOps').append(options);
+
+        //        }
+        //    }).fail(function (error) {
+        //        alert(error.StatusText);
+        //    });
+        //});
+
+    });
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+</script>
+
+
+

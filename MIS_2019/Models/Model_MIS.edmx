@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JEDMISDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InvTransTypes">
+          <Key>
+            <PropertyRef Name="TransCode" />
+          </Key>
+          <Property Name="TransCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="TransName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="TransType" Type="int" Nullable="false" />
+          <Property Name="System" Type="int" Nullable="false" />
+          <Property Name="TOrder" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="BrnItemCode" />
+          </Key>
+          <Property Name="BrnItemCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="BranchCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="ReorderLmt" Type="float" Nullable="false" />
+          <Property Name="MaxQty" Type="float" Nullable="false" />
+          <Property Name="MinQty" Type="float" Nullable="false" />
+          <Property Name="SalAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="PurAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="CRAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="VRAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="COGSAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="IVAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="TrnAccID" Type="nvarchar" MaxLength="15" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="ServerCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemsDirectory">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="200" />
+          <Property Name="AltrItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemType" Type="int" Nullable="false" />
+          <Property Name="Cat1Code" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Cat2Code" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Cat3Code" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Cat4Code" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="GroupID" Type="nvarchar" MaxLength="10" />
+          <Property Name="CostMethod" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+          <Property Name="Serialized" Type="int" Nullable="false" />
+          <Property Name="Expired" Type="int" Nullable="false" />
+          <Property Name="Active" Type="int" Nullable="false" />
+          <Property Name="Discontinued" Type="int" Nullable="false" />
+          <Property Name="Salable" Type="int" Nullable="false" />
+          <Property Name="PurPrice" Type="float" Nullable="false" />
+          <Property Name="SalPrice1" Type="float" Nullable="false" />
+          <Property Name="SalPrice2" Type="float" Nullable="false" />
+          <Property Name="SalPrice3" Type="float" Nullable="false" />
+          <Property Name="SalPrice4" Type="float" Nullable="false" />
+          <Property Name="SalPrice5" Type="float" Nullable="false" />
+          <Property Name="SalPrice" Type="float" Nullable="false" />
+          <Property Name="MinSalPrice" Type="float" />
+          <Property Name="VendCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ManufacturerCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ClassID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+          <Property Name="OldItemCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="PriceDateModified" Type="datetime" />
+          <Property Name="LongDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="MPGCode" Type="nvarchar" MaxLength="6" />
+          <Property Name="VendorPriceDate1" Type="datetime" />
+          <Property Name="VendorPriceDate2" Type="datetime" />
+          <Property Name="VendorPriceDate3" Type="datetime" />
+          <Property Name="VendorPrice1" Type="float" />
+          <Property Name="VendorPrice2" Type="float" />
+          <Property Name="VendorPrice3" Type="float" />
+          <Property Name="HSCode" Type="int" Nullable="false" />
+          <Property Name="MOQ" Type="int" Nullable="false" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="PricesModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ItemSerials">
+          <Key>
+            <PropertyRef Name="Serial" />
+            <PropertyRef Name="ItemCode" />
+            <PropertyRef Name="SerialNum" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="TransCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="TransNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="TransDate" Type="datetime" Nullable="false" />
+          <Property Name="DocNum" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="DateOut" Type="datetime" />
+          <Property Name="SerialNum" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="Trn_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DISC_ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ItemsInOutH">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BranchCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DocNum" Type="int" Nullable="false" />
+          <Property Name="TransType" Type="int" Nullable="false" />
+          <Property Name="TransNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="TransCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="TransDate" Type="datetime" Nullable="false" />
+          <Property Name="StoreCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="DestBranchCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="MTN" Type="nvarchar" MaxLength="20" />
+          <Property Name="PersonCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ChangeRate" Type="float" Nullable="false" />
+          <Property Name="TContactCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="TTerms" Type="nvarchar" MaxLength="30" />
+          <Property Name="TIsCredit" Type="int" />
+          <Property Name="TAmount" Type="float" />
+          <Property Name="TTotCommission" Type="float" />
+          <Property Name="CenterCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="300" />
+          <Property Name="DeliveredBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="ReceivedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="TransTime" Type="datetime" Nullable="false" />
+          <Property Name="IsPosted" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="ServerCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemsInOutL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Serial" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Trn_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="StoreCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Qty" Type="float" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CalCost" Type="int" Nullable="false" />
+          <Property Name="EntryNum" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Objects">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ObjectID" Type="int" Nullable="false" />
+          <Property Name="ObjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjectTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Separator" Type="bit" Nullable="false" />
+          <Property Name="ObjectType" Type="nvarchar" MaxLength="1" />
+          <Property Name="MenuTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="MainMnuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MnuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CanAdd" Type="bit" Nullable="false" />
+          <Property Name="CanEdit" Type="bit" Nullable="false" />
+          <Property Name="CanDelete" Type="bit" Nullable="false" />
+          <Property Name="CanPrint" Type="bit" Nullable="false" />
+          <Property Name="CanBrows" Type="bit" Nullable="false" />
+          <Property Name="ByBranch" Type="bit" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+          <Property Name="MenuHidden" Type="bit" Nullable="false" />
+          <Property Name="MenuIndex" Type="smallint" Nullable="false" />
+          <Property Name="HlpChmFile" Type="nvarchar" MaxLength="50" />
+          <Property Name="HlpHtmlFile" Type="nvarchar" MaxLength="50" />
+          <Property Name="HlpBkMark" Type="nvarchar" MaxLength="50" />
+          <Property Name="CriteriaFields" Type="nvarchar" MaxLength="500" />
+          <Property Name="CriteriaFieldsTables" Type="nvarchar" MaxLength="500" />
+          <Property Name="CriteriaFieldsBoundColumn" Type="nvarchar" MaxLength="75" />
+          <Property Name="CriteriaFieldsSources" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CriteriaFieldsTypes" Type="nvarchar" MaxLength="75" />
+          <Property Name="CriteriaFieldsCaptions" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsAlignments" Type="nvarchar" MaxLength="75" />
+          <Property Name="CriteriaFieldsWidths" Type="nvarchar" MaxLength="75" />
+          <Property Name="CriteriaFieldsOperators" Type="nvarchar" MaxLength="75" />
+          <Property Name="CriteriaFieldsUnique" Type="nvarchar" MaxLength="75" />
+          <Property Name="CFSourcesByBranch" Type="nvarchar" MaxLength="75" />
+          <Property Name="SortFieldsList" Type="nvarchar" MaxLength="500" />
+          <Property Name="Source" Type="nvarchar" MaxLength="300" />
+          <Property Name="ConnectToSQL" Type="bit" Nullable="false" />
+          <Property Name="OnlyCreateView" Type="bit" Nullable="false" />
+          <Property Name="UseAndOnly" Type="bit" Nullable="false" />
+          <Property Name="SendMinMaxDate" Type="bit" Nullable="false" />
+          <Property Name="FilterOn" Type="nvarchar" MaxLength="500" />
+          <Property Name="FilterOnFormula" Type="nvarchar" MaxLength="500" />
+          <Property Name="HotPrintForms" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SQLStatment" Type="varchar" MaxLength="5000" />
+          <Property Name="JetStatment" Type="varchar" MaxLength="5000" />
+          <Property Name="SqlNext" Type="varchar" MaxLength="5000" />
+          <Property Name="JetNext" Type="varchar" MaxLength="5000" />
+          <Property Name="ObjLanguage" Type="nvarchar" MaxLength="2" />
+          <Property Name="Icon" Type="image" />
+        </EntityType>
+        <EntityType Name="ObjectsDtl">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="CriteriaFields" />
+          </Key>
+          <Property Name="ObjectID" Type="int" Nullable="false" />
+          <Property Name="CriteriaFields" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="CriteriaFieldsTables" Type="nvarchar" MaxLength="500" />
+          <Property Name="CriteriaFieldsSources" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CriteriaFieldsBoundColumn" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsTypes" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsCaptions" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsAlignments" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsWidths" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsOperators" Type="nvarchar" MaxLength="100" />
+          <Property Name="CriteriaFieldsUnique" Type="nvarchar" MaxLength="100" />
+          <Property Name="CFSourcesByBranch" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortFieldsList" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="UserRights">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="BranchCode" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ObjectID" Type="int" Nullable="false" />
+          <Property Name="BranchCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="CanRun" Type="bit" Nullable="false" />
+          <Property Name="CanAdd" Type="bit" Nullable="false" />
+          <Property Name="CanEdit" Type="bit" Nullable="false" />
+          <Property Name="CanDelete" Type="bit" Nullable="false" />
+          <Property Name="CanPrint" Type="bit" Nullable="false" />
+          <Property Name="CanBrows" Type="bit" Nullable="false" />
+          <Property Name="AllBranches" Type="bit" />
+          <Property Name="ServerCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="AccessDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Items_ItemsDirectory">
+          <End Role="ItemsDirectory" Type="Self.ItemsDirectory" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsDirectory">
+              <PropertyRef Name="ItemCode" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSerials_ItemsDirectory">
+          <End Role="ItemsDirectory" Type="Self.ItemsDirectory" Multiplicity="1" />
+          <End Role="ItemSerials" Type="Self.ItemSerials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsDirectory">
+              <PropertyRef Name="ItemCode" />
+            </Principal>
+            <Dependent Role="ItemSerials">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSerials_ItemsInOutL">
+          <End Role="ItemsInOutL" Type="Self.ItemsInOutL" Multiplicity="0..1" />
+          <End Role="ItemSerials" Type="Self.ItemSerials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsInOutL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ItemSerials">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInOutH_InvTransTypes">
+          <End Role="InvTransTypes" Type="Self.InvTransTypes" Multiplicity="1" />
+          <End Role="ItemsInOutH" Type="Self.ItemsInOutH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvTransTypes">
+              <PropertyRef Name="TransCode" />
+            </Principal>
+            <Dependent Role="ItemsInOutH">
+              <PropertyRef Name="TransCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInOutL_ItemsDirectory">
+          <End Role="ItemsDirectory" Type="Self.ItemsDirectory" Multiplicity="1" />
+          <End Role="ItemsInOutL" Type="Self.ItemsInOutL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsDirectory">
+              <PropertyRef Name="ItemCode" />
+            </Principal>
+            <Dependent Role="ItemsInOutL">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInOutL_ItemsInOutH">
+          <End Role="ItemsInOutH" Type="Self.ItemsInOutH" Multiplicity="1" />
+          <End Role="ItemsInOutL" Type="Self.ItemsInOutL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsInOutH">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="ItemsInOutL">
+              <PropertyRef Name="Serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRights_Objects">
+          <End Role="Objects" Type="Self.Objects" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRights" Type="Self.UserRights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Objects">
+              <PropertyRef Name="ObjectID" />
+            </Principal>
+            <Dependent Role="UserRights">
+              <PropertyRef Name="ObjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRights_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserRights" Type="Self.UserRights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="UserRights">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_Mainmnu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SubMnu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mnuname" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="JEDMISDBModelStoreContainer">
+          <EntitySet Name="InvTransTypes" EntityType="Self.InvTransTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsDirectory" EntityType="Self.ItemsDirectory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemSerials" EntityType="Self.ItemSerials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsInOutH" EntityType="Self.ItemsInOutH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsInOutL" EntityType="Self.ItemsInOutL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Objects" EntityType="Self.Objects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObjectsDtl" EntityType="Self.ObjectsDtl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRights" EntityType="Self.UserRights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Items_ItemsDirectory" Association="Self.FK_Items_ItemsDirectory">
+            <End Role="ItemsDirectory" EntitySet="ItemsDirectory" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSerials_ItemsDirectory" Association="Self.FK_ItemSerials_ItemsDirectory">
+            <End Role="ItemsDirectory" EntitySet="ItemsDirectory" />
+            <End Role="ItemSerials" EntitySet="ItemSerials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSerials_ItemsInOutL" Association="Self.FK_ItemSerials_ItemsInOutL">
+            <End Role="ItemsInOutL" EntitySet="ItemsInOutL" />
+            <End Role="ItemSerials" EntitySet="ItemSerials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInOutH_InvTransTypes" Association="Self.FK_ItemsInOutH_InvTransTypes">
+            <End Role="InvTransTypes" EntitySet="InvTransTypes" />
+            <End Role="ItemsInOutH" EntitySet="ItemsInOutH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInOutL_ItemsDirectory" Association="Self.FK_ItemsInOutL_ItemsDirectory">
+            <End Role="ItemsDirectory" EntitySet="ItemsDirectory" />
+            <End Role="ItemsInOutL" EntitySet="ItemsInOutL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInOutL_ItemsInOutH" Association="Self.FK_ItemsInOutL_ItemsInOutH">
+            <End Role="ItemsInOutH" EntitySet="ItemsInOutH" />
+            <End Role="ItemsInOutL" EntitySet="ItemsInOutL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRights_Objects" Association="Self.FK_UserRights_Objects">
+            <End Role="Objects" EntitySet="Objects" />
+            <End Role="UserRights" EntitySet="UserRights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRights_Users" Association="Self.FK_UserRights_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRights" EntitySet="UserRights" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JEDMISDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="InvTransTypes">
+          <Key>
+            <PropertyRef Name="TransCode" />
+          </Key>
+          <Property Name="TransCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransType" Type="Int32" Nullable="false" />
+          <Property Name="System" Type="Int32" Nullable="false" />
+          <Property Name="TOrder" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="IssuedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ItemsInOutH" Relationship="Self.FK_ItemsInOutH_InvTransTypes" FromRole="InvTransTypes" ToRole="ItemsInOutH" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="BrnItemCode" />
+          </Key>
+          <Property Name="BrnItemCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BranchCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="ReorderLmt" Type="Double" Nullable="false" />
+          <Property Name="MaxQty" Type="Double" Nullable="false" />
+          <Property Name="MinQty" Type="Double" Nullable="false" />
+          <Property Name="SalAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PurAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CRAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="VRAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="COGSAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IVAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TrnAccID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="IssuedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServerCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ItemsDirectory" Relationship="Self.FK_Items_ItemsDirectory" FromRole="Items" ToRole="ItemsDirectory" />
+        </EntityType>
+        <EntityType Name="ItemsDirectory">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AltrItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemType" Type="Int32" Nullable="false" />
+          <Property Name="Cat1Code" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cat2Code" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cat3Code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cat4Code" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GroupID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CostMethod" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="Serialized" Type="Int32" Nullable="false" />
+          <Property Name="Expired" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Int32" Nullable="false" />
+          <Property Name="Discontinued" Type="Int32" Nullable="false" />
+          <Property Name="Salable" Type="Int32" Nullable="false" />
+          <Property Name="PurPrice" Type="Double" Nullable="false" />
+          <Property Name="SalPrice1" Type="Double" Nullable="false" />
+          <Property Name="SalPrice2" Type="Double" Nullable="false" />
+          <Property Name="SalPrice3" Type="Double" Nullable="false" />
+          <Property Name="SalPrice4" Type="Double" Nullable="false" />
+          <Property Name="SalPrice5" Type="Double" Nullable="false" />
+          <Property Name="SalPrice" Type="Double" Nullable="false" />
+          <Property Name="MinSalPrice" Type="Double" />
+          <Property Name="VendCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturerCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ClassID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OldItemCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="IssuedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PriceDateModified" Type="DateTime" Precision="3" />
+          <Property Name="LongDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="MPGCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="VendorPriceDate1" Type="DateTime" Precision="3" />
+          <Property Name="VendorPriceDate2" Type="DateTime" Precision="3" />
+          <Property Name="VendorPriceDate3" Type="DateTime" Precision="3" />
+          <Property Name="VendorPrice1" Type="Double" />
+          <Property Name="VendorPrice2" Type="Double" />
+          <Property Name="VendorPrice3" Type="Double" />
+          <Property Name="HSCode" Type="Int32" Nullable="false" />
+          <Property Name="MOQ" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PricesModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_ItemsDirectory" FromRole="ItemsDirectory" ToRole="Items" />
+          <NavigationProperty Name="ItemSerials" Relationship="Self.FK_ItemSerials_ItemsDirectory" FromRole="ItemsDirectory" ToRole="ItemSerials" />
+          <NavigationProperty Name="ItemsInOutL" Relationship="Self.FK_ItemsInOutL_ItemsDirectory" FromRole="ItemsDirectory" ToRole="ItemsInOutL" />
+        </EntityType>
+        <EntityType Name="ItemSerials">
+          <Key>
+            <PropertyRef Name="Serial" />
+            <PropertyRef Name="ItemCode" />
+            <PropertyRef Name="SerialNum" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="TransNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DocNum" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOut" Type="DateTime" Precision="3" />
+          <Property Name="SerialNum" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="IssuedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Trn_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DISC_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ItemsDirectory" Relationship="Self.FK_ItemSerials_ItemsDirectory" FromRole="ItemSerials" ToRole="ItemsDirectory" />
+          <NavigationProperty Name="ItemsInOutL" Relationship="Self.FK_ItemSerials_ItemsInOutL" FromRole="ItemSerials" ToRole="ItemsInOutL" />
+        </EntityType>
+        <EntityType Name="ItemsInOutH">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BranchCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocNum" Type="Int32" Nullable="false" />
+          <Property Name="TransType" Type="Int32" Nullable="false" />
+          <Property Name="TransNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StoreCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DestBranchCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="MTN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PersonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChangeRate" Type="Double" Nullable="false" />
+          <Property Name="TContactCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TTerms" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TIsCredit" Type="Int32" />
+          <Property Name="TAmount" Type="Double" />
+          <Property Name="TTotCommission" Type="Double" />
+          <Property Name="CenterCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveredBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ReceivedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TransTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsPosted" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="IssuedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServerCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InvTransTypes" Relationship="Self.FK_ItemsInOutH_InvTransTypes" FromRole="ItemsInOutH" ToRole="InvTransTypes" />
+          <NavigationProperty Name="ItemsInOutL" Relationship="Self.FK_ItemsInOutL_ItemsInOutH" FromRole="ItemsInOutH" ToRole="ItemsInOutL" />
+        </EntityType>
+        <EntityType Name="ItemsInOutL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Trn_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Qty" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CalCost" Type="Int32" Nullable="false" />
+          <Property Name="EntryNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ItemsDirectory" Relationship="Self.FK_ItemsInOutL_ItemsDirectory" FromRole="ItemsInOutL" ToRole="ItemsDirectory" />
+          <NavigationProperty Name="ItemSerials" Relationship="Self.FK_ItemSerials_ItemsInOutL" FromRole="ItemsInOutL" ToRole="ItemSerials" />
+          <NavigationProperty Name="ItemsInOutH" Relationship="Self.FK_ItemsInOutL_ItemsInOutH" FromRole="ItemsInOutL" ToRole="ItemsInOutH" />
+        </EntityType>
+        <EntityType Name="Objects">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ObjectID" Type="Int32" Nullable="false" />
+          <Property Name="ObjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Separator" Type="Boolean" Nullable="false" />
+          <Property Name="ObjectType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MenuTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MainMnuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MnuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CanAdd" Type="Boolean" Nullable="false" />
+          <Property Name="CanEdit" Type="Boolean" Nullable="false" />
+          <Property Name="CanDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CanPrint" Type="Boolean" Nullable="false" />
+          <Property Name="CanBrows" Type="Boolean" Nullable="false" />
+          <Property Name="ByBranch" Type="Boolean" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="MenuHidden" Type="Boolean" Nullable="false" />
+          <Property Name="MenuIndex" Type="Int16" Nullable="false" />
+          <Property Name="HlpChmFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HlpHtmlFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HlpBkMark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFields" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsTables" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsBoundColumn" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsSources" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsTypes" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsCaptions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsAlignments" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsWidths" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsOperators" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsUnique" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CFSourcesByBranch" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="SortFieldsList" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ConnectToSQL" Type="Boolean" Nullable="false" />
+          <Property Name="OnlyCreateView" Type="Boolean" Nullable="false" />
+          <Property Name="UseAndOnly" Type="Boolean" Nullable="false" />
+          <Property Name="SendMinMaxDate" Type="Boolean" Nullable="false" />
+          <Property Name="FilterOn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FilterOnFormula" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HotPrintForms" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SQLStatment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="JetStatment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SqlNext" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="JetNext" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="ObjLanguage" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="UserRights" Relationship="Self.FK_UserRights_Objects" FromRole="Objects" ToRole="UserRights" />
+        </EntityType>
+        <EntityType Name="ObjectsDtl">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="CriteriaFields" />
+          </Key>
+          <Property Name="ObjectID" Type="Int32" Nullable="false" />
+          <Property Name="CriteriaFields" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CriteriaFieldsTables" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsSources" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsBoundColumn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsTypes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsCaptions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsAlignments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsWidths" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsOperators" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CriteriaFieldsUnique" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CFSourcesByBranch" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortFieldsList" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserRights">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="BranchCode" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectID" Type="Int32" Nullable="false" />
+          <Property Name="BranchCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CanRun" Type="Boolean" Nullable="false" />
+          <Property Name="CanAdd" Type="Boolean" Nullable="false" />
+          <Property Name="CanEdit" Type="Boolean" Nullable="false" />
+          <Property Name="CanDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CanPrint" Type="Boolean" Nullable="false" />
+          <Property Name="CanBrows" Type="Boolean" Nullable="false" />
+          <Property Name="AllBranches" Type="Boolean" />
+          <Property Name="ServerCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccessDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Objects" Relationship="Self.FK_UserRights_Objects" FromRole="UserRights" ToRole="Objects" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserRights_Users" FromRole="UserRights" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="IssuedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserRights" Relationship="Self.FK_UserRights_Users" FromRole="Users" ToRole="UserRights" />
+        </EntityType>
+        <Association Name="FK_ItemsInOutH_InvTransTypes">
+          <End Role="InvTransTypes" Type="Self.InvTransTypes" Multiplicity="1" />
+          <End Role="ItemsInOutH" Type="Self.ItemsInOutH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvTransTypes">
+              <PropertyRef Name="TransCode" />
+            </Principal>
+            <Dependent Role="ItemsInOutH">
+              <PropertyRef Name="TransCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemsDirectory">
+          <End Role="ItemsDirectory" Type="Self.ItemsDirectory" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsDirectory">
+              <PropertyRef Name="ItemCode" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSerials_ItemsDirectory">
+          <End Role="ItemsDirectory" Type="Self.ItemsDirectory" Multiplicity="1" />
+          <End Role="ItemSerials" Type="Self.ItemSerials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsDirectory">
+              <PropertyRef Name="ItemCode" />
+            </Principal>
+            <Dependent Role="ItemSerials">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInOutL_ItemsDirectory">
+          <End Role="ItemsDirectory" Type="Self.ItemsDirectory" Multiplicity="1" />
+          <End Role="ItemsInOutL" Type="Self.ItemsInOutL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsDirectory">
+              <PropertyRef Name="ItemCode" />
+            </Principal>
+            <Dependent Role="ItemsInOutL">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSerials_ItemsInOutL">
+          <End Role="ItemsInOutL" Type="Self.ItemsInOutL" Multiplicity="0..1" />
+          <End Role="ItemSerials" Type="Self.ItemSerials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsInOutL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ItemSerials">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsInOutL_ItemsInOutH">
+          <End Role="ItemsInOutH" Type="Self.ItemsInOutH" Multiplicity="1" />
+          <End Role="ItemsInOutL" Type="Self.ItemsInOutL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsInOutH">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="ItemsInOutL">
+              <PropertyRef Name="Serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRights_Objects">
+          <End Role="Objects" Type="Self.Objects" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRights" Type="Self.UserRights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Objects">
+              <PropertyRef Name="ObjectID" />
+            </Principal>
+            <Dependent Role="UserRights">
+              <PropertyRef Name="ObjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRights_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserRights" Type="Self.UserRights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="UserRights">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JEDMISDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InvTransTypes" EntityType="Self.InvTransTypes" />
+          <EntitySet Name="Items" EntityType="Self.Items" />
+          <EntitySet Name="ItemsDirectory" EntityType="Self.ItemsDirectory" />
+          <EntitySet Name="ItemSerials" EntityType="Self.ItemSerials" />
+          <EntitySet Name="ItemsInOutH" EntityType="Self.ItemsInOutH" />
+          <EntitySet Name="ItemsInOutL" EntityType="Self.ItemsInOutL" />
+          <EntitySet Name="Objects" EntityType="Self.Objects" />
+          <EntitySet Name="ObjectsDtl" EntityType="Self.ObjectsDtl" />
+          <EntitySet Name="UserRights" EntityType="Self.UserRights" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_ItemsInOutH_InvTransTypes" Association="Self.FK_ItemsInOutH_InvTransTypes">
+            <End Role="InvTransTypes" EntitySet="InvTransTypes" />
+            <End Role="ItemsInOutH" EntitySet="ItemsInOutH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemsDirectory" Association="Self.FK_Items_ItemsDirectory">
+            <End Role="ItemsDirectory" EntitySet="ItemsDirectory" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSerials_ItemsDirectory" Association="Self.FK_ItemSerials_ItemsDirectory">
+            <End Role="ItemsDirectory" EntitySet="ItemsDirectory" />
+            <End Role="ItemSerials" EntitySet="ItemSerials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInOutL_ItemsDirectory" Association="Self.FK_ItemsInOutL_ItemsDirectory">
+            <End Role="ItemsDirectory" EntitySet="ItemsDirectory" />
+            <End Role="ItemsInOutL" EntitySet="ItemsInOutL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSerials_ItemsInOutL" Association="Self.FK_ItemSerials_ItemsInOutL">
+            <End Role="ItemsInOutL" EntitySet="ItemsInOutL" />
+            <End Role="ItemSerials" EntitySet="ItemSerials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsInOutL_ItemsInOutH" Association="Self.FK_ItemsInOutL_ItemsInOutH">
+            <End Role="ItemsInOutH" EntitySet="ItemsInOutH" />
+            <End Role="ItemsInOutL" EntitySet="ItemsInOutL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRights_Objects" Association="Self.FK_UserRights_Objects">
+            <End Role="Objects" EntitySet="Objects" />
+            <End Role="UserRights" EntitySet="UserRights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRights_Users" Association="Self.FK_UserRights_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRights" EntitySet="UserRights" />
+          </AssociationSet>
+          <FunctionImport Name="SP_Mainmnu" ReturnType="Collection(String)" />
+          <FunctionImport Name="SP_SubMnu" ReturnType="Collection(String)">
+            <Parameter Name="mnuname" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JEDMISDBModelStoreContainer" CdmEntityContainer="JEDMISDBEntities">
+          <EntitySetMapping Name="InvTransTypes">
+            <EntityTypeMapping TypeName="JEDMISDBModel.InvTransTypes">
+              <MappingFragment StoreEntitySet="InvTransTypes">
+                <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+                <ScalarProperty Name="TransName" ColumnName="TransName" />
+                <ScalarProperty Name="TransType" ColumnName="TransType" />
+                <ScalarProperty Name="System" ColumnName="System" />
+                <ScalarProperty Name="TOrder" ColumnName="TOrder" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="JEDMISDBModel.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="BrnItemCode" ColumnName="BrnItemCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="ReorderLmt" ColumnName="ReorderLmt" />
+                <ScalarProperty Name="MaxQty" ColumnName="MaxQty" />
+                <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+                <ScalarProperty Name="SalAccID" ColumnName="SalAccID" />
+                <ScalarProperty Name="PurAccID" ColumnName="PurAccID" />
+                <ScalarProperty Name="CRAccID" ColumnName="CRAccID" />
+                <ScalarProperty Name="VRAccID" ColumnName="VRAccID" />
+                <ScalarProperty Name="COGSAccID" ColumnName="COGSAccID" />
+                <ScalarProperty Name="IVAccID" ColumnName="IVAccID" />
+                <ScalarProperty Name="TrnAccID" ColumnName="TrnAccID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="ServerCode" ColumnName="ServerCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsDirectory">
+            <EntityTypeMapping TypeName="JEDMISDBModel.ItemsDirectory">
+              <MappingFragment StoreEntitySet="ItemsDirectory">
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="AltrItemName" ColumnName="AltrItemName" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="Cat1Code" ColumnName="Cat1Code" />
+                <ScalarProperty Name="Cat2Code" ColumnName="Cat2Code" />
+                <ScalarProperty Name="Cat3Code" ColumnName="Cat3Code" />
+                <ScalarProperty Name="Cat4Code" ColumnName="Cat4Code" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="CostMethod" ColumnName="CostMethod" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+                <ScalarProperty Name="Salable" ColumnName="Salable" />
+                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+                <ScalarProperty Name="SalPrice1" ColumnName="SalPrice1" />
+                <ScalarProperty Name="SalPrice2" ColumnName="SalPrice2" />
+                <ScalarProperty Name="SalPrice3" ColumnName="SalPrice3" />
+                <ScalarProperty Name="SalPrice4" ColumnName="SalPrice4" />
+                <ScalarProperty Name="SalPrice5" ColumnName="SalPrice5" />
+                <ScalarProperty Name="SalPrice" ColumnName="SalPrice" />
+                <ScalarProperty Name="MinSalPrice" ColumnName="MinSalPrice" />
+                <ScalarProperty Name="VendCode" ColumnName="VendCode" />
+                <ScalarProperty Name="ManufacturerCode" ColumnName="ManufacturerCode" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="OldItemCode" ColumnName="OldItemCode" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="PriceDateModified" ColumnName="PriceDateModified" />
+                <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+                <ScalarProperty Name="MPGCode" ColumnName="MPGCode" />
+                <ScalarProperty Name="VendorPriceDate1" ColumnName="VendorPriceDate1" />
+                <ScalarProperty Name="VendorPriceDate2" ColumnName="VendorPriceDate2" />
+                <ScalarProperty Name="VendorPriceDate3" ColumnName="VendorPriceDate3" />
+                <ScalarProperty Name="VendorPrice1" ColumnName="VendorPrice1" />
+                <ScalarProperty Name="VendorPrice2" ColumnName="VendorPrice2" />
+                <ScalarProperty Name="VendorPrice3" ColumnName="VendorPrice3" />
+                <ScalarProperty Name="HSCode" ColumnName="HSCode" />
+                <ScalarProperty Name="MOQ" ColumnName="MOQ" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PricesModifiedBy" ColumnName="PricesModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemSerials">
+            <EntityTypeMapping TypeName="JEDMISDBModel.ItemSerials">
+              <MappingFragment StoreEntitySet="ItemSerials">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+                <ScalarProperty Name="TransNum" ColumnName="TransNum" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="Trn_ID" ColumnName="Trn_ID" />
+                <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsInOutH">
+            <EntityTypeMapping TypeName="JEDMISDBModel.ItemsInOutH">
+              <MappingFragment StoreEntitySet="ItemsInOutH">
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="TransType" ColumnName="TransType" />
+                <ScalarProperty Name="TransNum" ColumnName="TransNum" />
+                <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
+                <ScalarProperty Name="DestBranchCode" ColumnName="DestBranchCode" />
+                <ScalarProperty Name="MTN" ColumnName="MTN" />
+                <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="ChangeRate" ColumnName="ChangeRate" />
+                <ScalarProperty Name="TContactCode" ColumnName="TContactCode" />
+                <ScalarProperty Name="TTerms" ColumnName="TTerms" />
+                <ScalarProperty Name="TIsCredit" ColumnName="TIsCredit" />
+                <ScalarProperty Name="TAmount" ColumnName="TAmount" />
+                <ScalarProperty Name="TTotCommission" ColumnName="TTotCommission" />
+                <ScalarProperty Name="CenterCode" ColumnName="CenterCode" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DeliveredBy" ColumnName="DeliveredBy" />
+                <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+                <ScalarProperty Name="TransTime" ColumnName="TransTime" />
+                <ScalarProperty Name="IsPosted" ColumnName="IsPosted" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="ServerCode" ColumnName="ServerCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsInOutL">
+            <EntityTypeMapping TypeName="JEDMISDBModel.ItemsInOutL">
+              <MappingFragment StoreEntitySet="ItemsInOutL">
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Trn_ID" ColumnName="Trn_ID" />
+                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CalCost" ColumnName="CalCost" />
+                <ScalarProperty Name="EntryNum" ColumnName="EntryNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Objects">
+            <EntityTypeMapping TypeName="JEDMISDBModel.Objects">
+              <MappingFragment StoreEntitySet="Objects">
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="ObjectTitle" ColumnName="ObjectTitle" />
+                <ScalarProperty Name="Separator" ColumnName="Separator" />
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="MenuTitle" ColumnName="MenuTitle" />
+                <ScalarProperty Name="MainMnuName" ColumnName="MainMnuName" />
+                <ScalarProperty Name="MnuName" ColumnName="MnuName" />
+                <ScalarProperty Name="CanAdd" ColumnName="CanAdd" />
+                <ScalarProperty Name="CanEdit" ColumnName="CanEdit" />
+                <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+                <ScalarProperty Name="CanPrint" ColumnName="CanPrint" />
+                <ScalarProperty Name="CanBrows" ColumnName="CanBrows" />
+                <ScalarProperty Name="ByBranch" ColumnName="ByBranch" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="MenuHidden" ColumnName="MenuHidden" />
+                <ScalarProperty Name="MenuIndex" ColumnName="MenuIndex" />
+                <ScalarProperty Name="HlpChmFile" ColumnName="HlpChmFile" />
+                <ScalarProperty Name="HlpHtmlFile" ColumnName="HlpHtmlFile" />
+                <ScalarProperty Name="HlpBkMark" ColumnName="HlpBkMark" />
+                <ScalarProperty Name="CriteriaFields" ColumnName="CriteriaFields" />
+                <ScalarProperty Name="CriteriaFieldsTables" ColumnName="CriteriaFieldsTables" />
+                <ScalarProperty Name="CriteriaFieldsBoundColumn" ColumnName="CriteriaFieldsBoundColumn" />
+                <ScalarProperty Name="CriteriaFieldsSources" ColumnName="CriteriaFieldsSources" />
+                <ScalarProperty Name="CriteriaFieldsTypes" ColumnName="CriteriaFieldsTypes" />
+                <ScalarProperty Name="CriteriaFieldsCaptions" ColumnName="CriteriaFieldsCaptions" />
+                <ScalarProperty Name="CriteriaFieldsAlignments" ColumnName="CriteriaFieldsAlignments" />
+                <ScalarProperty Name="CriteriaFieldsWidths" ColumnName="CriteriaFieldsWidths" />
+                <ScalarProperty Name="CriteriaFieldsOperators" ColumnName="CriteriaFieldsOperators" />
+                <ScalarProperty Name="CriteriaFieldsUnique" ColumnName="CriteriaFieldsUnique" />
+                <ScalarProperty Name="CFSourcesByBranch" ColumnName="CFSourcesByBranch" />
+                <ScalarProperty Name="SortFieldsList" ColumnName="SortFieldsList" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="ConnectToSQL" ColumnName="ConnectToSQL" />
+                <ScalarProperty Name="OnlyCreateView" ColumnName="OnlyCreateView" />
+                <ScalarProperty Name="UseAndOnly" ColumnName="UseAndOnly" />
+                <ScalarProperty Name="SendMinMaxDate" ColumnName="SendMinMaxDate" />
+                <ScalarProperty Name="FilterOn" ColumnName="FilterOn" />
+                <ScalarProperty Name="FilterOnFormula" ColumnName="FilterOnFormula" />
+                <ScalarProperty Name="HotPrintForms" ColumnName="HotPrintForms" />
+                <ScalarProperty Name="SQLStatment" ColumnName="SQLStatment" />
+                <ScalarProperty Name="JetStatment" ColumnName="JetStatment" />
+                <ScalarProperty Name="SqlNext" ColumnName="SqlNext" />
+                <ScalarProperty Name="JetNext" ColumnName="JetNext" />
+                <ScalarProperty Name="ObjLanguage" ColumnName="ObjLanguage" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObjectsDtl">
+            <EntityTypeMapping TypeName="JEDMISDBModel.ObjectsDtl">
+              <MappingFragment StoreEntitySet="ObjectsDtl">
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="CriteriaFields" ColumnName="CriteriaFields" />
+                <ScalarProperty Name="CriteriaFieldsTables" ColumnName="CriteriaFieldsTables" />
+                <ScalarProperty Name="CriteriaFieldsSources" ColumnName="CriteriaFieldsSources" />
+                <ScalarProperty Name="CriteriaFieldsBoundColumn" ColumnName="CriteriaFieldsBoundColumn" />
+                <ScalarProperty Name="CriteriaFieldsTypes" ColumnName="CriteriaFieldsTypes" />
+                <ScalarProperty Name="CriteriaFieldsCaptions" ColumnName="CriteriaFieldsCaptions" />
+                <ScalarProperty Name="CriteriaFieldsAlignments" ColumnName="CriteriaFieldsAlignments" />
+                <ScalarProperty Name="CriteriaFieldsWidths" ColumnName="CriteriaFieldsWidths" />
+                <ScalarProperty Name="CriteriaFieldsOperators" ColumnName="CriteriaFieldsOperators" />
+                <ScalarProperty Name="CriteriaFieldsUnique" ColumnName="CriteriaFieldsUnique" />
+                <ScalarProperty Name="CFSourcesByBranch" ColumnName="CFSourcesByBranch" />
+                <ScalarProperty Name="SortFieldsList" ColumnName="SortFieldsList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRights">
+            <EntityTypeMapping TypeName="JEDMISDBModel.UserRights">
+              <MappingFragment StoreEntitySet="UserRights">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="CanRun" ColumnName="CanRun" />
+                <ScalarProperty Name="CanAdd" ColumnName="CanAdd" />
+                <ScalarProperty Name="CanEdit" ColumnName="CanEdit" />
+                <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+                <ScalarProperty Name="CanPrint" ColumnName="CanPrint" />
+                <ScalarProperty Name="CanBrows" ColumnName="CanBrows" />
+                <ScalarProperty Name="AllBranches" ColumnName="AllBranches" />
+                <ScalarProperty Name="ServerCode" ColumnName="ServerCode" />
+                <ScalarProperty Name="AccessDate" ColumnName="AccessDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="JEDMISDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Mainmnu" FunctionName="JEDMISDBModel.Store.SP_Mainmnu" />
+          <FunctionImportMapping FunctionImportName="SP_SubMnu" FunctionName="JEDMISDBModel.Store.SP_SubMnu" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

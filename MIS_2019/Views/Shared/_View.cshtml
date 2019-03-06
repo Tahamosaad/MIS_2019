@@ -1,0 +1,117 @@
+﻿@model IEnumerable<MIS_2019.Models.Objects>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ObjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ObjectTitle)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFields)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsTables)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsBoundColumn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsSources)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsTypes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsCaptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsAlignments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsWidths)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsOperators)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriteriaFieldsUnique)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFSourcesByBranch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortFieldsList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+      
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ObjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ObjectTitle)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFields)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsTables)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsBoundColumn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsSources)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsTypes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsCaptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsAlignments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsWidths)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsOperators)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriteriaFieldsUnique)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFSourcesByBranch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortFieldsList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Source)
+        </td>
+       
+       
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ObjectID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ObjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ObjectID })
+        </td>*@
+    </tr>
+}
+
+</table>

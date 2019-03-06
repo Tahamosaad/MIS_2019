@@ -1,0 +1,54 @@
+﻿@model System.Data.DataSet
+
+@using System.Data
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MIS WEB</a>
+
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+          @if (Session["LoginCredentials"] != null)
+          {
+              <li>@Html.ActionLink("Logout", "LoginPage", "Logout")</li>
+          }
+          else
+          {
+              <li>@Html.ActionLink("Login", "LoginPage", "Login")</li>
+          }
+
+      </ul>
+    <ul class="nav navbar-nav">
+   @if (Session["MenuMaster"] != null)
+   {
+
+
+       var MenuMaster = (List<MIS_2019.Models.MainMenuModel>)Session["MenuMaster"];
+       var groupByMenu = MenuMaster.GroupBy(x => x.SubMainName);
+
+       
+       foreach (var MenuList in groupByMenu)
+       {
+
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">@MenuList.Key<span class="caret"></span></a>
+              <ul class="dropdown-menu" style="column-count : 2;grid-auto-columns:min-content; column-fill: balance; ">
+             @foreach (var SubMenuList in MenuList)
+             {
+
+                 <li><a href="#">@SubMenuList.SubMainName</a></li>
+             }
+             </ul>
+              </li>
+            
+         }
+   }
+
+    </ul>
+     @*@foreach (DataRow row in Model.Tables["Table1"].Rows)
+      {
+      @(row["LatinCap"])
+      }*@
+   
+    
+  </div>
+</nav>

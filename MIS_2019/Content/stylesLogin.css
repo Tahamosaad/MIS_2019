@@ -1,0 +1,129 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Karla);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
+/*
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);*/
+
+
+[class*="entypo1-"]:before {
+    font-family: 'entypo1', sans-serif;
+}
+
+[class*="icon-"]:before {
+    font-family: 'icomoon';
+}
+
+.wrap {
+    /*padding: 50px;*/
+    color: #888;
+    width: 550px;
+    height: 230px;
+    font-family: 'Karla';
+    /*margin: 150px 440px 0 470px;*/
+    /*margin: 110px auto;*/
+    margin: 30px auto;
+    text-align: center;
+    height: inherit;
+    /*margin: 0px 0 0 70px;*/
+    /*margin-top: 80px;*/
+    padding: 20px 40px 0px 40px;
+    /*border-radius: 15px;*/
+    /*text-shadow: 0 1.5px 0 black;*/
+    text-shadow: 2px 6px 6px rgba(0,0,0,0.3);
+    /*box-shadow: inset 0px 1px 0px 0px #fff, inset 0px -1px 2px 0px #000, 0 5px 8px rgba(0, 0, 0, .8), 0 0px 0px 1px rgba(0, 0, 0, .3);
+            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0.2, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+            background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+            background: linear-gradient(to bottom, rgba(50, 50, 50, 0.5) 0%, rgba(50, 50, 50, 0.2) 100%);*/
+    position: inherit;
+    font-size: inherit;
+    border: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px;
+    background-color: white;
+    border-color: #D3D3D3;
+    box-shadow: 0px 1px 8px #BEBEBE;
+    display:block;
+}
+
+input {
+    font-family: 'Ubuntu';
+    font-weight: 300;
+    border: 0;
+    /*border-bottom: 1px solid #ff5407;*/
+    /*border-bottom: 1px solid #CF7600;*/
+    border-bottom: 1px solid #EBD2B1;
+    width: 95%;
+    height: 36px;
+    font-size: 26px;
+    /*margin: 10px;*/
+    margin: 10px auto;
+    background-color: transparent;
+    color: #2B2B2B;
+}
+
+    input:focus {
+        outline: none;
+        box-shadow: none;
+        /*background: #ffeae2;*/
+        background: -moz-linear-gradient(top, rgba(177, 177, 177, 0.3) 0%, rgba(223, 223, 223, 0.3) 100%);
+        background: -webkit-linear-gradient(top,rgba(177, 177, 177, 0.3) 0%, rgba(223, 223, 223, 0.3) 100%);
+        background: -ms-linear-gradient(top, rgba(177, 177, 177, 0.3) 0%, rgba(223, 223, 223, 0.3) 100%);
+        background: linear-gradient(to bottom, rgba(177, 177, 177, 0.3) 0%, rgba(223, 223, 223, 0.3) 100%);
+    }
+
+button {
+    border: 0;
+    background: transparent;
+    /*padding: 5px;*/
+    /*margin-top: 10px;*/
+    position: relative;
+    padding: 0px;
+}
+
+.button after:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 100%; /*should be set to 100% */
+    width: 0;
+    height: 0;
+    border-color: transparent transparent transparent #14a03d; /*border color should be same as div div background color*/
+    border-style: solid;
+    border-width: 5px;
+}
+
+.forgot {
+    /*background: #a0a0a0;*/
+    color: #A0A0A0;
+    float: left;
+}
+
+.login {
+    /*background: #a0a0a0;*/
+    /*background: #CF7600;*/
+    background: #E7B572;
+    color: #fff;
+    float: right;
+    width: 50px;
+    font-size: 20px;
+    width: 70px;
+    height: 30px;
+    margin: 0px;
+    border: 0px;
+}
+    .login:hover {
+       background: #E7A348;
+    }
+.Language {
+    float: left;
+    font-size: 12px;
+    /*background: #a0a0a0;*/
+    color: #A0A0A0;
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+    padding: 4px;
+    height: 8px;
+}
