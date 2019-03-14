@@ -1,12 +1,10 @@
 ﻿@model MIS_2019.Models.Paramters
 
 @{
-    ViewBag.Title = "ViewReport";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 
-<h2>ViewReport</h2>
 @if (@TempData["error"] != null)
 {
     <div class="alert alert-danger">
@@ -88,7 +86,6 @@
                         <input name="btnAdd" type="button" id="btnAdd" value="Add Line" onclick="'httpGet(http://localhost:61862/Report/GetAll);'" style="height: 25px; width: 63px">
                     </td>
                 </tr>
-
                 <tr>
                     <td></td>
 
@@ -151,79 +148,8 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <link href="~/Content/CitrusIsland.css" rel="stylesheet" type="text/css">
-<script src="~/Scripts/loadreport.js"></script>
-<script type="text/javascript">
-   
-    
-
-    $(function () {
-        $(".dropdown-menu li a").click(function () {
-            //alert();
-            console.log($(".dropdown-menu li a option:selected").index())
-            var name = $(this).text();
-            var obj = { ReportName: name };
-            $('#lblTitle span').text(name);
-            $('#txtRepID').text();
-            
-            AjaxCall('/Report/SetReport', JSON.stringify(obj), 'POST').done(function (response) {
-                if (response.length > 0) {
-                    $('#ddlFields').html('');
-                    var options = '';
-                    options += '<option value="Select">Select</option>';
-                    for (var i = 0; i < response.length; i++) {
-                        options += '<option value="' + response[i] + '">' + response[i] + '</option>';
-                    }
-                    $('#ddlFields').append(options);
-
-                }
-            }).fail(function (error) {
-                alert(error.StatusText);
-            });
-        });
-
-        //AjaxCall('/Report/GetCriteria', null).done(function (response) {
-        //    if (response.length > 0) {
-        //        $('#ddlFields').html('');
-        //        var options = '';
-        //        options += '<option value="Select">Select</option>';
-        //        for (var i = 0; i < response.length; i++) {
-        //            options += '<option value="' + response[i] + '">' + response[i] + '</option>';
-        //        }
-        //        $('#ddlFields').append(options);
-
-        //    }
-        //}).fail(function (error) {alert(error.StatusText);});
-
-        //$('#ddlFields').on("change", function () {
-        //    var criteria = $('#ddlFields').val();
-        //    var obj = { Criteria: criteria };
-        //    AjaxCall('/Report/GetOperation', JSON.stringify(obj), 'POST').done(function (response) {
-        //        if (response.length > 0) {
-        //            $('#ddlOps').html('');
-        //            var options = '';
-        //            options += '<option value="Select">Select</option>';
-        //            for (var i = 0; i < response.length; i++) {
-        //                options += '<option value="' + response[i] + '">' + response[i] + '</option>';
-        //            }
-        //            $('#ddlOps').append(options);
-
-        //        }
-        //    }).fail(function (error) {
-        //        alert(error.StatusText);
-        //    });
-        //});
-
-    });
-
-    function AjaxCall(url, data, type) {
-        return $.ajax({
-            url: url,
-            type: type ? type : 'GET',
-            data: data,
-            contentType: 'application/json'
-        });
-    }
-</script>
+@*<script src="~/Scripts/loadreport.js"></script>*@
+<script src="~/Scripts/LoadMenu.js"></script>
 
 
 

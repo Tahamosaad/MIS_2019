@@ -154,4 +154,3 @@ function postreq() {
     http.send(params);
 }
 
-//]]>

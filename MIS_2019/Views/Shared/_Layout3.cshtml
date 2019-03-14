@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+
+    <div class="topnav" style="background:dodgerblue;">
+
+        <a onclick="showForm()">Form</a>
+        <a onclick="showReportList()">Report</a>
+
+    </div>
+    <nav>
+        @Html.Partial("_MenuPartial")
+    </nav>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <div class="container">
+            @RenderBody();
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+    
+
+
+</body>
+
+
+
+</html>
+<script>
+    var currentList = {}
+    function showReportList(id) {
+        $("#Report").html(currentList.name);
+
+
+        $("#Form").hide();
+        $("#Report").show();
+
+
+    }
+    function showForm(id) {
+
+
+
+        $("#Home").show();
+        $("#Report").hide();
+
+
+    }
+</script>

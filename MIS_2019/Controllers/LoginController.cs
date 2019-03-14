@@ -44,11 +44,11 @@ namespace MIS_2019.Controllers
 
             return View("LoginPage");
         }
-        public void GetMainMnu()
-        {
-            var mnu = db.Objects.Where(x => x.ObjectType == "R").GroupBy(x => x.MainMnuName).ToList();
+        //public void GetMainMnu()
+        //{
+        //    var mnu = db.Objects.Where(x => x.ObjectType == "R").GroupBy(x => x.MainMnuName).ToList();
             
-        }
+        //}
         DataTable MenuDic
         {
             get
@@ -159,7 +159,7 @@ namespace MIS_2019.Controllers
         void FillMainFormsMenu()
         {
             Session["MainFormsMenu"] = MainMenuFormsDT;
-      
+            
         }
 
         void FillMainReportsMenu()
@@ -177,8 +177,11 @@ namespace MIS_2019.Controllers
                 FillMainFormsMenu();
                 FillMainReportsMenu();
                 bool isExist = false;
-                DataSet ds = new DataSet();
-                List<MainMenuModel> MN = new List<MainMenuModel>();
+                DataSet report_ds = new DataSet();
+                DataSet form_ds = new DataSet();
+                List<MainMenuModel> RPT = new List<MainMenuModel>();
+                List<MainMenuModel> FRM = new List<MainMenuModel>();
+
                 List<string> _menus2 = new List<string>() ;
                 List<string> list = new List<string>();
                 using (JEDMISDBEntities _entity = new JEDMISDBEntities())  // out Entity name is "JEDMISDBEntities"
@@ -199,48 +202,69 @@ namespace MIS_2019.Controllers
                             }).FirstOrDefault();
 
                         Session["UserName"] = _loginCredentials.UserName;
-                        var mnu = db.Objects.Where(x => x.ObjectType == "R").GroupBy(x=>x.MainMnuName).ToList();
-                       
-                        
+                        //var mnu = db.Objects.Where(x => x.ObjectType == "R").GroupBy(x=>x.MainMnuName).ToList();
 
                         //Get the Menu details from entity and bind it in MenuModels list.
-                        List<MenuModels> _menus = _entity.Objects.
-                            Select(x => new MenuModels
-                        {
-                            ObjectID = x.ObjectID,
-                            ObjectName = x.ObjectName,
-                            MainMnuName = x.MainMnuName,
-                            ObjectTitle = x.ObjectTitle,
-                            MenuIndex = x.MenuIndex,
-                            MenuTitle = x.MenuTitle,
-                            MnuName = x.MnuName,
-                            CriteriaFields = x.CriteriaFields
-                        }).ToList();
-                        //load sub menu 
-
+                        //List<MenuModels> _menus = _entity.Objects.Where(x => x.ObjectType == "R").Select(x => new MenuModels
+                        //{
+                        //    ObjectID = x.ObjectID,
+                        //    ObjectName = x.ObjectName,
+                        //    MainMnuName = x.MainMnuName,
+                        //    ObjectTitle = x.ObjectTitle,
+                        //    MenuIndex = x.MenuIndex,
+                        //    MenuTitle = x.MenuTitle,
+                        //    MnuName = x.MnuName,
+                        //    CriteriaFields = x.CriteriaFields
+                        //}).ToList();
+            
+                        //code goning to be enhance more
+                        //here we load all report menus to datatable and save in in mainmenumodel 
                         foreach (DataRow r in MainMenuNamesDT.Rows)
                         {
+                            //DT.Clear();
+                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile, dic.LatinCap, dic.ArabicCap FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MainMnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
                             DT.TableName = r["MainMnuName"].ToString();
-                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile, dic.LatinCap, dic.ArabicCap FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
+                            foreach (DataRow item in MenuDic.Rows)
+                            {
+                                if (r["MainMnuName"].ToString() == item["FieldName"].ToString())
+                                {
+                                    DT.TableName = item["LatinCap"].ToString();
+                                }
 
-                            ds.Tables.Add(DT);
+
+                            }
+                            report_ds.Tables.Add(DT);//this dataset save all submenu and name the table with name of menu name  
                             List<string> list2 = DT.AsEnumerable().Select(t => t.Field<string>("LatinCap")).ToList();
-                            MN.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2 });
+                            RPT.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2 });
 
 
                         }
-                   
-                        //foreach (DataTable table in ds.Tables)
-                        //{
 
-                        //    foreach (DataRow dr in table.Rows)
-                        //    {
-                        //    }
-                        //}
+                        foreach (DataRow r in MainMenuFormsDT.Rows)
+                        {
+                            //DT.Clear();
+                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile, dic.LatinCap, dic.ArabicCap FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MainMnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
+                            DT.TableName = r["MainMnuName"].ToString();
+                            foreach (DataRow item in MainMenuDic.Rows)
+                            {
+                                if (r["MainMnuName"].ToString() == item["FieldName"].ToString())
+                                {
+                                    DT.TableName = item["LatinCap"].ToString();
+                                }
+
+
+                            }
+                            form_ds.Tables.Add(DT);
+                            List<string> list2 = DT.AsEnumerable().Select(t => t.Field<string>("LatinCap")).ToList();
+                            FRM.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2 });
+
+
+                        }
+                        
                         FormsAuthentication.SetAuthCookie(_loginCredentials.UserName, false); // set the formauthentication cookie
                         Session["LoginCredentials"] = _loginCredentials; // Bind the _logincredentials details to "LoginCredentials" session
-                        Session["MenuMaster"] = _menus; //Bind the _menus list to MenuMaster session
-                        Session["Menu"] = _menus2;
+                        Session["ReportMenu"] = RPT; //Bind the _menus list to MenuMaster session
+                        Session["FormMenu"] = FRM;
 
 
                         return RedirectToAction("ViewReport", "Report");

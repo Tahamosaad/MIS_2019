@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\taha.mosaad\documents\visual studio 2015\Projects\MIS_2019\MIS_2019\Models\Model_MIS.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\taha.mosaad\Documents\Visual Studio 2015\Projects\MIS_2019\MIS_2019\Models\Model_MIS.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

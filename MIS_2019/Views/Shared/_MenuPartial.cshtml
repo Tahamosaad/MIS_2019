@@ -1,54 +1,111 @@
-﻿@model System.Data.DataSet
+﻿
 
-@using System.Data
+
+
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">MIS WEB</a>
-
-    </div>
-      <ul class="nav navbar-nav navbar-right">
-          @if (Session["LoginCredentials"] != null)
-          {
-              <li>@Html.ActionLink("Logout", "LoginPage", "Logout")</li>
-          }
-          else
-          {
-              <li>@Html.ActionLink("Login", "LoginPage", "Login")</li>
-          }
-
-      </ul>
-    <ul class="nav navbar-nav">
-   @if (Session["MenuMaster"] != null)
-   {
-
-
-       var MenuMaster = (List<MIS_2019.Models.MainMenuModel>)Session["MenuMaster"];
-       var groupByMenu = MenuMaster.GroupBy(x => x.SubMainName);
-
-       
-       foreach (var MenuList in groupByMenu)
-       {
-
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">@MenuList.Key<span class="caret"></span></a>
-              <ul class="dropdown-menu" style="column-count : 2;grid-auto-columns:min-content; column-fill: balance; ">
-             @foreach (var SubMenuList in MenuList)
-             {
-
-                 <li><a href="#">@SubMenuList.SubMainName</a></li>
-             }
-             </ul>
-              </li>
+    <div class="container-fluid">
+        <nav>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MIS WEB</a>
+                <a class="navbar-btn"onclick="showHome()" href="#">Form</a>
+                <a class="navbar-btn " onclick="showReportList()" href="#">Report</a>
+            </div>
             
-         }
-   }
+              
 
-    </ul>
-     @*@foreach (DataRow row in Model.Tables["Table1"].Rows)
-      {
-      @(row["LatinCap"])
-      }*@
-   
-    
-  </div>
+        
+            <ul class="nav navbar-nav navbar-right">
+                @if (Session["LoginCredentials"] != null)
+                {
+                    <li>@Html.ActionLink("Logout", "LoginPage", "Logout")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Login", "LoginPage", "Login")</li>
+                }
+
+            </ul>
+        </nav>
+
+        <nav id="Report">
+            <ul class="nav navbar-nav">
+                @if (Session["ReportMenu"] != null)
+                {
+
+                    List<MIS_2019.Models.MainMenuModel> MN = new List<MIS_2019.Models.MainMenuModel>();
+                    MN = (List<MIS_2019.Models.MainMenuModel>)Session["ReportMenu"];
+                    //var groupByMenu = MenuMaster.GroupBy(x => x.MainMnuName);
+
+
+                    foreach (var MenuList in MN)
+                    {
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">@MenuList.MnuName<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="column-count : 2;grid-auto-columns:min-content; column-fill: balance; ">
+                                @foreach (var SubMenuList in MenuList.SubMainName)
+                                {
+
+                                    <li><a href="#">@SubMenuList</a></li>
+                                }
+                            </ul>
+                        </li>
+
+                    }
+                }
+
+            </ul>
+        </nav>
+
+        <nav id="Form"  style="display: none;">
+            <ul class="nav navbar-nav">
+                @if (Session["FormMenu"] != null)
+                {
+
+                    List<MIS_2019.Models.MainMenuModel> MN = new List<MIS_2019.Models.MainMenuModel>();
+                    MN = (List<MIS_2019.Models.MainMenuModel>)Session["FormMenu"];
+                    //var groupByMenu = MenuMaster.GroupBy(x => x.MainMnuName);
+
+
+                    foreach (var MenuList in MN)
+                    {
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">@MenuList.MnuName<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="column-count : 2;grid-auto-columns:min-content; column-fill: balance; ">
+                                @foreach (var SubMenuList in MenuList.SubMainName)
+                                {
+
+                                    <li><a href="#">@SubMenuList</a></li>
+                                }
+                            </ul>
+                        </li>
+
+                    }
+                }
+
+            </ul>
+        </nav>
+    </div>
 </nav>
+<script>
+    var currentList = {}
+    function showReportList(id) {
+        $("#Report").html(currentList.name);
+
+
+        $("#Form").hide();
+        $("#Report").show();
+        $("#form1").show();
+
+    }
+    function showHome(id) {
+
+
+
+        $("#Form").show();
+        $("#Report").hide();
+        $("#form1").hide();
+
+    }
+</script>
