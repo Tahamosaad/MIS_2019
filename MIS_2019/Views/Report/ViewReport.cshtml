@@ -16,22 +16,16 @@
     <div class="form-horizontal">
 
 
-        <table class="table1 ">
+        <table class="table1" style="padding-top:5em;" >
             <thead>
+                
                 <tr>
                     <td id="lblTitle" class="style1" colspan="5" align="justify">
-                        
-                        <span  style="display:inline-block;color:Sienna;background-color:Transparent;font-size:X-Large;font-weight:bold;font-style:italic;height:19px;"></span>
+
+                        <span style="display:inline-block;color:Sienna;background-color:Transparent;font-size:X-Large;font-weight:bold;font-style:italic;height:19px;"></span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="style1" align="justify" colspan="5">
-                        <span id="Label3"  style="display:inline-block;color:Sienna;background-color:Transparent;font-family:Arial;font-size:12pt;font-weight:bold;font-style:normal;width:32px;">ID:</span>
-                        @*@Html.LabelFor(model => model.ReportID, htmlAttributes: new { @class = "control-label col-md-2", id = "txtRepID" })*@
-                        <span id="txtRepID" style="color:Sienna;font-family:Arial;font-size:12pt;font-weight:bold;"></span>
 
-                      </td>
-                </tr>
                 <tr>
                     <td colspan="5" align="justify">
 
@@ -83,7 +77,7 @@
                     </td>
 
                     <td align="justify">
-                        <input name="btnAdd" type="button" id="btnAdd" value="Add Line" onclick="'httpGet(http://localhost:61862/Report/GetAll);'" style="height: 25px; width: 63px">
+                        <input name="btnAdd" type="button" id="btnAdd" value="Add Line" onclick="AddLine();" style="height: 25px; width: 63px">
                     </td>
                 </tr>
                 <tr>
@@ -96,7 +90,7 @@
                         </select>
                     </td>
                     <td valign="top" align="justify">
-                        <input name="BtnDel" type="submit" id="BtnDel" value="Remove" onclick="UserAction();" style="height: 25px; width: 64px">
+                        <input name="BtnDel" type="submit" id="BtnDel" value="Remove" onclick="DelLine();" style="height: 25px; width: 64px">
                     </td>
 
                 </tr>
@@ -148,8 +142,7 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <link href="~/Content/CitrusIsland.css" rel="stylesheet" type="text/css">
-@*<script src="~/Scripts/loadreport.js"></script>*@
+<script src="~/Scripts/loadreport.js"></script>
 <script src="~/Scripts/LoadMenu.js"></script>
-
 
 

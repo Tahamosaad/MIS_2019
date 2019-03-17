@@ -1,7 +1,13 @@
-﻿    $(function () {
+﻿$(function () {
+    
+    
         $(".dropdown-menu li a").click(function () {
             //alert();
             //console.log($(".dropdown-menu li a option:selected").index())
+            if (document.getElementById('form1').style.display != "none") {
+                // now user select report
+                console.log("true");
+            
             var name = $(this).text();
             var obj = { ReportName: name };
             $('#lblTitle span').text(name);
@@ -21,7 +27,12 @@
             }).fail(function (error) {
                 alert(error.StatusText);
             });
+            }
+            else {//now you are choose form 
+                console.log("false")
+            }
         })
+    
 
         //AjaxCall('/Report/GetCriteria', null).done(function (response) {
         //    if (response.length > 0) {
@@ -63,5 +74,6 @@ function AjaxCall(url, data, type) {
         type: type ? type : 'GET',
         data: data,
         contentType: 'application/json'
-    })
+    });
+
 }

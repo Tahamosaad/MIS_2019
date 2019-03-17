@@ -167,7 +167,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\LoadMenu.js" />
     <Content Include="Scripts\loadreport.js" />
+    <Content Include="Scripts\menu_jquery.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ShowRep.js" />
+    <Content Include="Scripts\SS.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
