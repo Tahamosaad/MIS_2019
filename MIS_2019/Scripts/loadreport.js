@@ -80,17 +80,27 @@ function OpenPopup(){
         retval= window.open(url, 'retval','height=520,width=790,location=no,addressbar=no ,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');
         if(retval!='' && retval!=null){
         }}}
-function OpenReport(){
-    var url, i, ddl=new Object();
-    url='ViewReport.aspx?Criteria=' + Criteria + '&CriteriaCap=' + CriteriaCap +'&ReportID=' + document.getElementById('txtRepID').childNodes[0].nodeValue + '&Dest=' + findControl('ddlDest').selectedIndex;
-    //var W=window.open(url, '');
-    var theForm = document.forms['form1'];
-    theForm.submit();
-}
+//function OpenReport(){
+//    var url, i, ddl=new Object();
+//    url='ViewReport.aspx?Criteria=' + Criteria + '&CriteriaCap=' + CriteriaCap +'&ReportID=' + document.getElementById('txtRepID').childNodes[0].nodeValue + '&Dest=' + findControl('ddlDest').selectedIndex;
+//    //var W=window.open(url, '');
+//    var theForm = document.forms['form1'];
+//    theForm.submit();
+//}
+
 function setTargetField(targetField) {
     window.focus();
     //document.getElementById("txtValue").innerText = targetField;
     document.getElementById('txtValue').value = targetField;
+
+}
+function AjaxCall(url, data, type) {
+    return $.ajax({
+        url: url,
+        type: type ? type : 'GET',
+        data: data,
+        contentType: 'application/json'
+    });
 
 }
 function showreport() {

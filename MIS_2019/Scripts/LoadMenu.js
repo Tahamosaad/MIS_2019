@@ -33,7 +33,7 @@
             }
         })
     
-
+     
         //AjaxCall('/Report/GetCriteria', null).done(function (response) {
         //    if (response.length > 0) {
         //        $('#ddlFields').html('');
@@ -43,7 +43,6 @@
         //            options += '<option value="' + response[i] + '">' + response[i] + '</option>';
         //        }
         //        $('#ddlFields').append(options);
-
         //    }
         //}).fail(function (error) {alert(error.StatusText);});
 
@@ -59,7 +58,6 @@
         //                options += '<option value="' + response[i] + '">' + response[i] + '</option>';
         //            }
         //            $('#ddlOps').append(options);
-
         //        }
         //    }).fail(function (error) {
         //        alert(error.StatusText);
@@ -67,7 +65,16 @@
         //});
 
     });
+//$("#btnGo").click(function() {
+//    AjaxCall('/Report/ViewReport', JSON.stringify(obj), 'POST').done(function (response) {
+//        if (response.length > 0) {
 
+//            console.log("hi");
+//        }
+//    }).fail(function (error) {
+//        alert(error.StatusText);
+//    });
+//});
 function AjaxCall(url, data, type) {
     return $.ajax({
         url: url,

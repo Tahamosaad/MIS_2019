@@ -1,5 +1,4 @@
 ﻿@model MIS_2019.Models.Paramters
-
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
@@ -12,6 +11,8 @@
     </div>
 }
 
+@*@using (Html.BeginForm("ShowGeneric", "Report"))
+{*@
 <form name="form1"  id="form1">
     <div class="form-horizontal">
 
@@ -49,6 +50,11 @@
                        @*    @Html.DropDownList("optionName", ViewBag.Categories as IEnumerable<SelectListItem>)*@
 
                         </div>
+                   
+
+                       
+                    
+                       
                         <select name="ddlFields" id="ddlFields" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;height:22px;width:30%;position: static; height: 22px;">
                             <option value="Select"> Select</option>
 
@@ -85,12 +91,12 @@
 
                     <td align="justify">
                         <select size="4" name="lstCriteria" id="lstCriteria" style="height:120px;width:474px;position: static;">
-                            <option value="Item Code = 09010101-109 AND">Item Code = 09010101-109 AND</option>
+                            <option >ItemCode^^^=^^^02080102-014^^^^^^AND</option>
 
                         </select>
                     </td>
                     <td valign="top" align="justify">
-                        <input name="BtnDel" type="submit" id="BtnDel" value="Remove" onclick="DelLine();" style="height: 25px; width: 64px">
+                        <input name="BtnDel" type="button" id="BtnDel" value="Remove" onclick="DelLine();" style="height: 25px; width: 70px">
                     </td>
 
                 </tr>
@@ -119,7 +125,7 @@
                         </select>
                     </td>
                     <td>
-                        <input name="btnGo" type="submit" id="btnGo" value="Run" onclick="OpenReport();" style="width: 64px">
+                        <input name="btnGo" type="button" id="btnGo" value="Run"  style="width: 70px">
                     </td>
 
                 </tr>
@@ -139,10 +145,45 @@
     <span style="color:Blue">|</span>*@
 
 </form>
+
+
+
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <link href="~/Content/CitrusIsland.css" rel="stylesheet" type="text/css">
-<script src="~/Scripts/loadreport.js"></script>
+@*<script src="~/Scripts/loadreport.js"></script>*@
 <script src="~/Scripts/LoadMenu.js"></script>
+<script>
+    var Crit = document.getElementById('lstCriteria');
+    var Title = document.getElementById('lblTitle');
+    var Link = document.getElementById('ddlLink');
+    var Dest = document.getElementById('ddlDest');
+    var Sort = document.getElementById('ddlSort');
+    var Lan = document.getElementById('Language');
+    $("#btnGo").click(function (e) {
+        
+      
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/Report/ViewReport",
+            data: {
+                RepTitle: Title.innerText,
+                ReportID: 11, // < note use of 'this' here
+                RepCriteria: Crit.innerText,
+                RepCap: Link.value,
+                RepDest: Dest.value,
+                RepSort: Sort.value,
+                RepLanguage:Lan.innerText
+            },
+            success: function () {
+                window.open("../GenericReportViewer/ShowGenericRpt", 'mywindow', 'fullscreen=yes, scrollbars=auto');
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+    });
+</script>
 
 

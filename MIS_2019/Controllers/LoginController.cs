@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using MIS_2019.Models;
 using System.Web.Security;
 using System.Data;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace MIS_2019.Controllers
 {
@@ -47,8 +49,19 @@ namespace MIS_2019.Controllers
         //public void GetMainMnu()
         //{
         //    var mnu = db.Objects.Where(x => x.ObjectType == "R").GroupBy(x => x.MainMnuName).ToList();
-            
+
         //}
+        public string Language
+        {
+            get
+            {
+                return Session.SessionID + "Language";
+            }
+            //set (string value)
+            //{
+            //  Session(Session.SessionID + "Language") = value;
+            //}
+        }
         DataTable MenuDic
         {
             get
@@ -167,7 +180,76 @@ namespace MIS_2019.Controllers
             Session["MainReportsMenu"] = MainMenuNamesDT;
         }
 
+        protected void mainrptMenu_ItemDataBound(DataTable dataitem)
+        {
+            List<string> spanMainRepMenu = new List<string>();
+            if (dataitem.Rows.Count < 1)
+            {
+                return;
+            }
 
+            try
+            {
+                //HtmlGenericControl divRepSubMenu = (HtmlGenericControl)(e.Item.FindControl("divRepSubMenu"));
+                foreach (DataRow row in dataitem.Rows)
+                {
+
+
+                    if ((row == null))
+                    {
+                        return;
+                    }
+
+                    if (MainMenuDic != null)
+                    {
+
+                        DataRow[] r = MainMenuDic.Select(("FieldName='" + (row["MainMnuName"].ToString() + "'")));
+                        if ((r.Length > 0))
+                        {
+                            if ((Language == "Arabic"))
+                            {
+                                if ((r[0]["ArabicCap"] == DBNull.Value))
+                                {
+                                    spanMainRepMenu.Add(r[0]["LatinCap"].ToString());
+                                }
+                                else
+                                {
+                                    spanMainRepMenu.Add(r[0]["ArabicCap"].ToString());
+                                    // btn.Text = r(0)("LatinCap").ToString()
+                                }
+
+                            }
+                            else
+                            {
+                                spanMainRepMenu.Add(r[0]["LatinCap"].ToString());
+                                // btnFrmMenu.Text = r(0)("LatinCap").ToString()
+                            }
+
+                        }
+                        else
+                        {
+                            // btn.Text = row("MnuName").ToString()
+                            spanMainRepMenu.Add(row["MainMnuName"].ToString());
+                        }
+
+                    }
+                    else
+                    {
+                        // btn.Text = row("MnuName").ToString()
+                        spanMainRepMenu.Add(row["MainMnuName"].ToString());
+                    }
+
+                    DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "Objects", "MnuName", ("MainMnuName='" + (row["MainMnuName"].ToString() + "' AND ObjectType='R' ")), "", "", "", 0, true);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+
+        }
         [HttpPost]
         public ActionResult LoginPage(Users _login)
         {

@@ -53,7 +53,7 @@
                             </div>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-                                    <select class="form-control" id="type">
+                                    <select class="form-control" id="Language">
                                         <option value="ltr">English </option>
                                         <option value="rtl">Arabic</option>
                                     </select>
@@ -89,7 +89,7 @@
 </html>
 
 <script type="text/javascript">
-        document.getElementById('type').addEventListener('change', function () {
+    document.getElementById('Language').addEventListener('change', function () {
             document.getElementById('page').setAttribute('dir', this.value);
         })
 

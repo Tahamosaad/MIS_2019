@@ -7,10 +7,12 @@ namespace MIS_2019.Models
 {
     public class Paramters
     {
-        public string Criteria { get; set; }
-        public string CriteriaCap { get; set; }
-        public int ReportID { get; set; }
-        public string Dest { get; set; }
-        public string RepPath { get; set; }
+        public string RepTitle { get; set; }
+        public string RepCriteria { get; set; }
+        public string RepCap { get; set; }
+        public long ReportID { get; set; }
+        public long RepDest { get; set; }
+        public string RepSort { get; set; }
+        public string RepLanguage { get; set; }
     }
 }

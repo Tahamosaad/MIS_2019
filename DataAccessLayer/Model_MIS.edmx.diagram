@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="61fc84584dd341a181349baba3de0add" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="JEDMISDBModel.Dic" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.InvTransTypes" Width="1.5" PointX="5.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Items" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemSerials" Width="1.5" PointX="12.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsGroups" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsInOutH" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ItemsInOutL" Width="1.5" PointX="10.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Objects" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.ObjectsDtl" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.System" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.UserRights" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.Users" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JEDMISDBModel.MIS_LOG" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutH_InvTransTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemSerials_ItemsInOutL" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_ItemsInOutL_ItemsInOutH" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_UserRights_Objects" ManuallyRouted="false" />
+        <AssociationConnector Association="JEDMISDBModel.FK_UserRights_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

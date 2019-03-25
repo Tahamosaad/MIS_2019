@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using MIS_2019.Models;
+using System.Text.RegularExpressions;
 
 namespace MIS_2019
 {
@@ -18,7 +19,7 @@ namespace MIS_2019
 
             static string _GlobalConnectionString = "";
 
-            public static string GlobalConnectionString
+        public static string GlobalConnectionString
             {
                 get { return _GlobalConnectionString; }
                 set { _GlobalConnectionString = value; }
@@ -48,6 +49,43 @@ namespace MIS_2019
             da.Fill(ds);
             return ds;
         }
+
+        public static bool dbExecute(string strSQL, string strConnection)
+        {
+            SqlConnection cnExec = new SqlConnection(strConnection);
+            cnExec.Open();
+            SqlCommand cmExec = new SqlCommand(strSQL, cnExec);
+            try
+            {
+                if (cmExec.ExecuteNonQuery() > 0)
+                {
+                    cnExec.Close();
+                    return true;
+                }
+                else return false;
+            }
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+                return false;
+
+            }
+        }
+        public static string GetUserName()
+        {
+            // Return HttpContext.Current.Request.Cookies("UserName").Value
+            // Exit Function
+            if ((HttpContext.Current.Session["UserName"].ToString() != ""))
+            {
+                return HttpContext.Current.Session["UserName"].ToString();
+            }
+            else
+            {
+                HttpContext.Current.Response.Redirect("LoginPage", true);
+                return "";
+            }
+
+        }
         public static int ExecuteSQL(string SQL, string ConnectionString)
             {
                 OleDbConnection C = new OleDbConnection(ConnectionString);
@@ -74,6 +112,11 @@ namespace MIS_2019
                     if (C.State != ConnectionState.Closed) C.Close();
                 }
             }
+
+        public static string GetConfigSetting(string strSetting)
+        {
+            return ConfigurationManager.AppSettings.Get(strSetting);
+        }
         public static bool IsSQL(string SQL)
         {
             return (((SQL.IndexOf("SELECT ", 0, StringComparison.OrdinalIgnoreCase) + 1) != 0));
@@ -342,10 +385,92 @@ namespace MIS_2019
 
                 return internalObjects;
             }
+        public static string GetStrPart(string Str, int Part, string Sep = ";") {
+        string[] a;
+         string[]sep=new string[]{Sep};
+            string GetStrPart = "";
+           a= Str.Split(sep, StringSplitOptions.None);            
+            if (!((Part > (a.Length-1))|| (Part< 0)) )
+                GetStrPart= a[Part].Trim().Replace("\r\n", " ").Trim();
 
+            return GetStrPart;
+    }
+        public static int GetStrSerial(string Str, string Part, string Sep = ";")
+        {
+            string[] a;
+            string[] sep = new string[] { Sep };//taha
+            int i, GetStrSerial = - 1;
+            a = Str.Split(sep, StringSplitOptions.RemoveEmptyEntries);
+            for (i = 0; i < a.Length;i++ )
+            {
+                if ((a[i].Replace("\r\n", "").ToUpper()) == (Part.Trim().Replace("\r\n", "").ToUpper()))
+                { GetStrSerial = i; break; }
+            }
             
+            return GetStrSerial;
+        }
+        public static string ReadField(object value)
+        {
+            return (DBNull.Value.Equals(value) ? "" : value.ToString());
+        }
+        public static string AddCriteriaToSql(string VSQL, string Crit)
+        {
+            string SQL, RepSQL;
+            int i,J;
+            RepSQL = VSQL.Replace("\r\n", " ");
+            SQL = ("("+ (Crit + ")"));
+            if ((IsSQL(RepSQL) == false))
+            {
+                return ("SELECT * FROM "  + (RepSQL + ((Crit == "") ? "" : (" WHERE " + SQL))));
 
-            public static bool IsInStringList(string ItemToSearch, List<string> StringList)
+            }
+
+            if ((Crit != ""))
+            {
+                if (((RepSQL.IndexOf(" UNION ", 0, StringComparison.OrdinalIgnoreCase) + 1) > 0))
+                {
+                    return (RepSQL + (" WHERE " + (SQL + ";")));
+
+                }
+
+                J = (RepSQL.IndexOf(" GROUP BY", 0, System.StringComparison.OrdinalIgnoreCase) + 1);
+                if ((J <= 0))
+                {
+                    J = (RepSQL.IndexOf(" HAVING", 0, System.StringComparison.OrdinalIgnoreCase) + 1);
+                }
+
+                if ((J <= 0))
+                {
+                    J = (RepSQL.IndexOf(" ORDER BY", 0, System.StringComparison.OrdinalIgnoreCase) + 1);
+                }
+
+                if ((J <= 0))
+                {
+                    J = (RepSQL.IndexOf(";", (RepSQL.Length - 2)) + 1);
+                }
+
+                if ((J <= 0))
+                {
+                    J = (RepSQL.Length + 1);
+                }
+
+                i = (RepSQL.IndexOf(" WHERE", 0, System.StringComparison.OrdinalIgnoreCase) + 1);
+                if ((i > 0))
+                {
+                    RepSQL = (RepSQL.Substring(0, (i + 5)) + (" (" + (RepSQL.Substring((i + 5), (J - (i - 6))) + (") AND "+ (SQL + RepSQL.Substring((J - 1)))))));
+                }
+                else
+                {
+                    SQL = (" WHERE " + SQL);
+                    RepSQL = (RepSQL.Substring(0, (J - 1)) + (SQL + RepSQL.Substring((J - 1))));
+                }
+
+            }
+
+            return RepSQL;
+        }
+
+        public static bool IsInStringList(string ItemToSearch, List<string> StringList)
             {
                 string strLower = ItemToSearch.ToLower();
                 foreach (string item in StringList)
