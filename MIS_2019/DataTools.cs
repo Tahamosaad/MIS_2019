@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using MIS_2019.Models;
 using System.Text.RegularExpressions;
+using System.Web.UI;
 
 namespace MIS_2019
 {
@@ -29,6 +30,7 @@ namespace MIS_2019
           string cs=   ConfigurationManager.ConnectionStrings["JEDMISDBEntities"].ConnectionString;
            EntityConnectionStringBuilder conn = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["JEDMISDBEntities"].ConnectionString);
             string cs2 = conn.ProviderConnectionString;
+            
             return cs2;
         }
         public static DataSet Execute_SP(string sp_name, string sp_par)
@@ -115,6 +117,7 @@ namespace MIS_2019
 
         public static string GetConfigSetting(string strSetting)
         {
+            
             return ConfigurationManager.AppSettings.Get(strSetting);
         }
         public static bool IsSQL(string SQL)
@@ -875,7 +878,6 @@ namespace MIS_2019
                 return output;
             }
 
-            
-        }
+    }
     }
 

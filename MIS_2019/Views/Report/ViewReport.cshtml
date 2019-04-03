@@ -10,140 +10,171 @@
         @TempData["error"]
     </div>
 }
+<nav id="Report">
+    <ul class="nav navbar-nav">
+        @if (Session["ReportMenu"] != null)
+        {
 
+            List<MIS_2019.Models.MainMenuModel> MN = (List<MIS_2019.Models.MainMenuModel>)Session["ReportMenu"];
+            //var groupByMenu = MenuMaster.GroupBy(x => x.MainMnuName);
+
+
+            foreach (var MenuList in MN)
+            {
+
+                <li class="dropdown">
+                    <a id="drp_lst" class="dropdown-toggle" data-toggle="dropdown" href="#">@MenuList.MnuName<span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="column-count : 2;grid-auto-columns:min-content; column-fill: balance; ">
+                        @foreach (var SubMenuList in MenuList.SubMainName)
+                        {
+                            var val = MenuList.Rep_submnu.Where(x => x.Value == @SubMenuList).Select(x => x.Value).ToList();
+                            var ky = MenuList.Rep_submnu.Where(x => x.Value == @SubMenuList).Select(x => x.Key).ToList();
+
+                            <li><a id="@ky[0].ToString()">@val[0].ToString()</a></li>
+                                        @*<li id="idkey" style="visibility :hidden"><a>@ky[0].ToString()</a></li>*@
+
+                        }
+                        @*@foreach (var SubMenu in MenuList.Rep_submnu)
+                            {
+
+                                <li><a>@SubMenu.Key.ToString()|@SubMenu.Value.ToString()</a></li>
+
+                            }*@
+                    </ul>
+                </li>
+
+            }
+        }
+
+    </ul>
+</nav>
+
+<div id="main_Image">
+    <img id="main_Image" height="550" width="1350" src="~/Images/people_and_technology.jpg" />
+</div>
 @*@using (Html.BeginForm("ShowGeneric", "Report"))
-{*@
-<form name="form1"  id="form1">
-    <div class="form-horizontal">
+{
+
+}*@
+<form name="form1"  id="form1" >
+    <div class="form-horizontal">            
+            <table id="table1" class="table1" style="padding-top:5em;">
+                <thead>
+
+                    <tr>
+                        <td id="lblTitle" class="style1" colspan="5" align="justify">
+
+                            <span style="display:inline-block;color:Sienna;background-color:Transparent;font-size:X-Large;font-weight:bold;font-style:italic;height:19px;"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style1" align="justify" colspan="5">
+                            <Label ID="Label3" BackColor="Transparent" Font-Bold="True" Font-Italic="False" Font-Size="12pt" ForeColor="Sienna" Width="32px" Font-Names="Arial">ID:</Label>
+                            <span ID="txtRepID" Font-Bold="True" Font-Names="Arial" Font-Size="12pt" ForeColor="Sienna"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" align="justify">
+
+                            <span id="Label2" style="background-color:Transparent;font-family:Arial;">
+                                Specify the search criteria,then click <b>Run</b> button:
+                            </span>
+                        </td>
+                    </tr>
+                </thead>
 
 
-        <table class="table1" style="padding-top:5em;" >
-            <thead>
-                
-                <tr>
-                    <td id="lblTitle" class="style1" colspan="5" align="justify">
+                <tbody>
+                    <tr>
+                        <td align="justify">
+                            <span>select Field</span>
+                        </td>
 
-                        <span style="display:inline-block;color:Sienna;background-color:Transparent;font-size:X-Large;font-weight:bold;font-style:italic;height:19px;"></span>
-                    </td>
-                </tr>
+                        <td>
+                            <div class="dropdown">
+                                @*@Html.DropDownList("operation","select op")*@
+                                @*    @Html.DropDownList("optionName", ViewBag.Categories as IEnumerable<SelectListItem>)*@
 
-                <tr>
-                    <td colspan="5" align="justify">
-
-                        <span id="Label2" style="background-color:Transparent;font-family:Arial;">
-                            Specify the search criteria,then click <b>Run</b> button:
-                        </span>
-                    </td>
-                </tr>
-            </thead>
+                            </div>
 
 
-            <tbody>
-                <tr>
-                    <td align="justify">
-                        <span>select Field</span>
-                    </td>
 
-                    <td>
-                        <div class="dropdown">
-                            @*@Html.DropDownList("operation","select op")*@
-                       @*    @Html.DropDownList("optionName", ViewBag.Categories as IEnumerable<SelectListItem>)*@
 
-                        </div>
-                   
 
-                       
-                    
-                       
-                        <select name="ddlFields" id="ddlFields" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;height:22px;width:30%;position: static; height: 22px;">
-                            <option value="Select"> Select</option>
+                            <select name="ddlFields" id="ddlFields" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;height:22px;width:30%;position: static; height: 22px;">
+                                <option id="lstFields" value="Select"> Select</option>
+                            </select>
 
-                        </select>
+                            <select name="ddlOps" id="ddlOps" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;position: static;">
+                                <option value="=">=</option>
+                                <option value=">">&gt;</option>
+                                <option value=">=">&gt;=</option>
+                                <option value="<">&lt;</option>
+                                <option value="<=">&lt;=</option>
+                                <option value="<>">&lt;&gt;</option>
+                                <option value="Like">Like</option>
 
-                        <select name="ddlOps" id="ddlOps" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;position: static;">
-                            <option value="=">=</option>
-                            <option value=">">&gt;</option>
-                            <option value=">=">&gt;=</option>
-                            <option value="<">&lt;</option>
-                            <option value="<=">&lt;=</option>
-                            <option value="<>">&lt;&gt;</option>
-                            <option value="Like">Like</option>
+                            </select>
 
-                        </select>
+                            <input type="text" id="txtValue" style="width:30%;position: static; height: 22px;">
+                            @*@Html.TextBoxFor( x => x.CriteriaCap, new {@name = "txtValue", @id = "txtValue", @class =  "form-control", @style = "width:30%;position: static; height: 22px;" })*@
+                            <img id="BtnSearch" onclick="OpenPopup();" height="22" alt="" src="~/Images/Search.gif" width="24" style="cursor: hand">
 
-                        <input type="text" id="txtValue" style="width:30%;position: static; height: 22px;">
-                        @*@Html.TextBoxFor( x => x.CriteriaCap, new {@name = "txtValue", @id = "txtValue", @class =  "form-control", @style = "width:30%;position: static; height: 22px;" })*@
-                        <img id="BtnSearch" onclick="OpenPopup();" height="22" alt="" src="~/Images/Search.gif" width="24" style="cursor: hand">
+                            <select name="ddlLink" id="ddlLink" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;width:68px;position: static;">
+                                <option value="AND">AND</option>
+                                <option value="OR">OR</option>
 
-                        <select name="ddlLink" id="ddlLink" style="color:#000333;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:8pt;width:68px;position: static;">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
+                            </select>
+                        </td>
 
-                        </select>
-                    </td>
+                        <td align="justify">
+                            <input name="btnAdd" type="button" id="btnAdd" value="Add Line" onclick="AddLine();" style="height: 25px; width: 63px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
 
-                    <td align="justify">
-                        <input name="btnAdd" type="button" id="btnAdd" value="Add Line" onclick="AddLine();" style="height: 25px; width: 63px">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
+                        <td align="justify">
+                            <select size="4" name="lstCriteria" id="lstCriteria" style="height:120px;width:474px;position: static;"></select>
+                        </td>
+                        <td valign="top" align="justify">
+                            <input name="BtnDel" type="button" id="BtnDel" value="Remove" onclick="DelLine();" style="height: 25px; width: 70px">
+                        </td>
 
-                    <td align="justify">
-                        <select size="4" name="lstCriteria" id="lstCriteria" style="height:120px;width:474px;position: static;">
-                            <option >ItemCode^^^=^^^02080102-014^^^^^^AND</option>
+                    </tr>
+                    <tr>
+                        <td></td>
 
-                        </select>
-                    </td>
-                    <td valign="top" align="justify">
-                        <input name="BtnDel" type="button" id="BtnDel" value="Remove" onclick="DelLine();" style="height: 25px; width: 70px">
-                    </td>
+                        <td align="justify">
+                            <select name="ddlDest" id="ddlDest">
+                                <option selected="selected" value="0">Preview</option>
+                                <option value="1">Export PDF</option>
+                                <option value="2">Export Excel</option>
+                                <option value="3">Excel Data Only</option>
+                                <option value="4">Rich Text Format</option>
+                                <option value="5">Html</option>
+                                <option value="6">WinWord</option>
+                                <option value="7">Crystal Report</option>
+                                <option value="11">Print</option>
 
-                </tr>
-                <tr>
-                    <td></td>
+                            </select>
 
-                    <td align="justify">
-                        <select name="ddlDest" id="ddlDest">
-                            <option selected="selected" value="0">Preview</option>
-                            <option value="1">Export PDF</option>
-                            <option value="2">Export Excel</option>
-                            <option value="3">Excel Data Only</option>
-                            <option value="4">Rich Text Format</option>
-                            <option value="5">Html</option>
-                            <option value="6">WinWord</option>
-                            <option value="7">Crystal Report</option>
-                            <option value="11">Print</option>
+                            <select name="ddlSort" id="ddlSort">
+                                <option value=""> </option>
+                                <option value="ASC">ASC</option>
+                                <option value="DESC">DESC</option>
 
-                        </select>
+                            </select>
+                        </td>
+                        <td>
+                            <input name="btnGo" type="button" id="btnGo" value="Run" style="width: 70px">
+                        </td>
 
-                        <select name="ddlSort" id="ddlSort">
-                            <option value=" "> </option>
-                            <option value="ASC">ASC</option>
-                            <option value="DESC">DESC</option>
+                    </tr>
 
-                        </select>
-                    </td>
-                    <td>
-                        <input name="btnGo" type="button" id="btnGo" value="Run"  style="width: 70px">
-                    </td>
-
-                </tr>
-
-            </tbody>
-        </table>
-
+                </tbody>
+            </table>
     </div>
-
-    @*@Ajax.ActionLink("All", "All",
-    new AjaxOptions
-    {
-        HttpMethod = "GET", // HttpMethod to use, GET or POST
-        UpdateTargetId = "divStudents", // ID of the HTML element to update
-        InsertionMode = InsertionMode.Replace // Replace the existing contents
-    })
-    <span style="color:Blue">|</span>*@
-
 </form>
 
 
@@ -152,38 +183,7 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <link href="~/Content/CitrusIsland.css" rel="stylesheet" type="text/css">
 @*<script src="~/Scripts/loadreport.js"></script>*@
-<script src="~/Scripts/LoadMenu.js"></script>
-<script>
-    var Crit = document.getElementById('lstCriteria');
-    var Title = document.getElementById('lblTitle');
-    var Link = document.getElementById('ddlLink');
-    var Dest = document.getElementById('ddlDest');
-    var Sort = document.getElementById('ddlSort');
-    var Lan = document.getElementById('Language');
-    $("#btnGo").click(function (e) {
-        
-      
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "/Report/ViewReport",
-            data: {
-                RepTitle: Title.innerText,
-                ReportID: 11, // < note use of 'this' here
-                RepCriteria: Crit.innerText,
-                RepCap: Link.value,
-                RepDest: Dest.value,
-                RepSort: Sort.value,
-                RepLanguage:Lan.innerText
-            },
-            success: function () {
-                window.open("../GenericReportViewer/ShowGenericRpt", 'mywindow', 'fullscreen=yes, scrollbars=auto');
-            },
-            error: function (result) {
-                alert('error');
-            }
-        });
-    });
-</script>
+<script  type="text/javascript" src="~/Scripts/LoadReports.js"></script>
+
 
 

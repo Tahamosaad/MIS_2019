@@ -16,238 +16,39 @@
 </head>
 
 <body style="padding-top:70px;">
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" id="page">
             <div class="navbar-header">
-                <div id="logoLink">
-                    <a href="http://www.saudisoft.com/">
-                        <img id="Img1" src="./Images/SSlogo.png" alt="" />
-                    </a>
-                  
-                </div>
-
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-heart" style="font-size:30px; color:#3498db;"></span>
+                </button>
+                <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-heart" style="font-size:18px; color:#3498db;"></span></a>
             </div>
-            @*<div class="navbar-header">*@
-            @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar">hi</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>*@
 
-            @*@Html.ActionLink("MIS 2019", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>*@
             <div class="navbar-collapse collapse">
+
                 <ul class="nav navbar-nav">
-
-                    <li class="dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span id="report1">Inventory</span><span class="caret"></span>
-                        </a>
-                        <ul id="submenu1" class="dropdown-menu" role="menu">
-                          
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span id="report2">SALES</span><span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li data-toggle="tab"><a href="Test/Index">Items List</a></li>
-                            <li data-toggle="tab"><a href="#">Item Card</a></li>
-                            <li data-toggle="tab"><a href="#">Price List</a></li>
-                            <li class="divider"> Inventory Costing</li>
-                            <li><a href="#">Stock Costing Report</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SERVICE <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            @*@foreach (var SubMenuList in MenuList)
-                            {
-                                <li><a href="#">@SubMenuList.SubMenuName</a></li>
-                            }*@
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PURCHASES <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="Test/Index">Items List</a></li>
-                            <li><a href="#">Item Card</a></li>
-                            <li><a href="#">Price List</a></li>
-                            <li class="divider"> Inventory Costing</li>
-                            <li><a href="#">Stock Costing Report</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">VENDORS BILLING <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="Test/Index">Item List</a></li>
-                            <li><a href="#">Item Card</a></li>
-                            <li><a href="#">Price List</a></li>
-                            <li class="divider"> Inventory Costing</li>
-                            <li><a href="#">Stock Costing Report</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span id="selected">GENERAL LEDGER</span><span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Option 1</a></li>
-                            <li><a href="#">Option 2</a></li>
-                            <li><a href="#">Option 3</a></li>
-                            <li><a href="#">Option 4</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span id="selected">BANKS & SAFES</span><span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Option 1</a></li>
-                            <li><a href="#">Option 2</a></li>
-                            <li><a href="#">Option 3</a></li>
-                            <li><a href="#">Option 4</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a aria-expanded="false" class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
-                            <span id="dropdown09"> </span> Language <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li> <a class="dropdown-item" href="#us"><span class="flag-icon flag-icon-us"> </span>  English</a></li>
-                            <li> <a class="dropdown-item" href="#eg"><span class="flag-icon flag-icon-eg"> </span>  Arabic</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a href="@Url.Action("Logout","Login")">Logout</a></li>
+                    <li><a class="navbar-brand" href="http://www.saudisoft.com/"> <img id="Img1" src="~/Images/MISlogo2.png" alt="" /> </a></li>
                 </ul>
-                @*<form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>*@
 
-            </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <img src="~/Images/SSlogo.png" /></li>
+                </ul>
+
+            </div><!--/.nav-collapse -->
+            
         </div>
-    </div>
-
-    <div class="container">
-        @RenderBody()
-    </div>
+        </nav>
+        <div class="container">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - MIS Application</p>
+            <p>MIS WEB Application - &copy;SaudiSoft @DateTime.Now.Year</p>
         </footer>
-    
-    <script>
 
-
-        $(function () {
-
-            $(document).ready(function () {
-
-                //var name = $(this).attr('id');
-                //$.ajax({
-                //    type: 'GET',
-                //    url: '/Report/GetCriteria',
-                //    data: { "name": name },
-                //    success: function (data)
-                //    {
-                //        console.log(data);
-                //        $('#submenu1').append(data);
-                //    },
-                //});
-
-                AjaxCall('/Report/GetCriteria', null).done(function (response) {
-                    if (response.length > 0) {
-                        $('#submenu1').html('');
-                        var options = '';
-
-                        options += '<li><a href="#"></a></li>';
-                        for (var i = 0; i < response.length; i++) {
-                            options += '<li <a href="#">' + response[i] + '</a></li>';
-
-                        }
-                        $('#submenu1').append(options);
-
-                    }
-                }).fail(function (error) { alert(error.StatusText); });
-            });
-            //$(".dropdown-menu li a").click(function () {
-
-            //    var name = $("#report1").text($(this).text()).text();
-            //    var obj = { ReportName: name };
-            //    AjaxCall('/Report/SetReport', JSON.stringify(obj), 'POST').done
-            //});
-
-
-            //$('#drplst_1').on("change", function () {
-            //    var country = $('#drplst_1').val();
-            //    var obj = { country: country };
-            //    AjaxCall('/Test/GetStates', JSON.stringify(obj), 'POST').done(function (response) {
-            //        if (response.length > 0) {
-            //            $('#drplst_2').html('');
-            //            var options = '';
-            //            options += '<option value="Select">Select</option>';
-            //            for (var i = 0; i < response.length; i++) {
-            //                options += '<option value="' + response[i] + '">' + response[i] + '</option>';
-            //            }
-            //            $('#drplst_2').append(options);
-
-            //        }
-            //    }).fail(function (error) {
-            //        alert(error.StatusText);
-            //    });
-            //});
-
-        });
-
-        function AjaxCall(url, data, type) {
-            return $.ajax({
-                url: url,
-                type: type ? type : 'GET',
-                data: data,
-                contentType: 'application/json'
-            });
-        }
-    </script>
-    <script>
-         $(document).ready(function() {
-            $("#my-menu").mmenu();
-
-            var API = $("#my-menu").data( "mmenu" );
-
-            $("#add_li").click(function() {
-               var li = '<li><a href="/work">Our work</a></li>';
-
-               $("#my-list").find( ".mm-listview" ).append( li );
-               API.initPanels( $("#my-list") );
-
-               return false;
-            });
-            $("#add_ul").click(function() {
-               var ul = '<ul>';
-               ul += '<li><a href="/about/history">History</a></li>';
-               ul += '<li><a href="/about/team">The team</a></li>';
-               ul += '<li><a href="/about/address">Our address</a></li>';
-               ul += '</ul>';
-
-               $("#my-item").append( ul );
-               API.initPanels( $("#my-list") );
-
-               return false;
-            });
-         });
-    </script>
+        
+        
 </body>
 
 </html>

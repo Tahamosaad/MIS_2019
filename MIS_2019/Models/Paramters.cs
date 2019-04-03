@@ -14,5 +14,8 @@ namespace MIS_2019.Models
         public long RepDest { get; set; }
         public string RepSort { get; set; }
         public string RepLanguage { get; set; }
+        public string RepLink { get; set; }
+        public List<string> Criterialist { get; set; }
+        public string RepCriteria_val { get; set; }
     }
 }

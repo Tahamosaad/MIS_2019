@@ -9,6 +9,7 @@ using System.Data;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 
+
 namespace MIS_2019.Controllers
 {
     public class LoginController : Controller
@@ -263,6 +264,8 @@ namespace MIS_2019.Controllers
                 DataSet form_ds = new DataSet();
                 List<MainMenuModel> RPT = new List<MainMenuModel>();
                 List<MainMenuModel> FRM = new List<MainMenuModel>();
+                Dictionary<int, string> Frm_dic = new Dictionary<int, string>();
+                Dictionary<int, string> Rpt_dic = new Dictionary<int, string>();
 
                 List<string> _menus2 = new List<string>() ;
                 List<string> list = new List<string>();
@@ -270,6 +273,7 @@ namespace MIS_2019.Controllers
                 {
                     //validating the user name in tbl users table whether the user name is exist or not
                     isExist = _entity.Users.Where(x => x.UserName.Trim().ToLower() == _login.UserName.Trim().ToLower()).Any();
+                    
                     // Get the login user details and bind it to User class  
                     if (isExist)
                     {
@@ -279,11 +283,12 @@ namespace MIS_2019.Controllers
                             UserName = x.UserName,
                             CanRun = x.CanRun,
                             ObjectID = x.ObjectID,
-                            
+                            BranchCode= x.BranchCode,
                            //UserRights = x.UserRights
                             }).FirstOrDefault();
 
                         Session["UserName"] = _loginCredentials.UserName;
+                        Session["BranchCode"] = _loginCredentials.BranchCode;
                         //var mnu = db.Objects.Where(x => x.ObjectType == "R").GroupBy(x=>x.MainMnuName).ToList();
 
                         //Get the Menu details from entity and bind it in MenuModels list.
@@ -304,8 +309,10 @@ namespace MIS_2019.Controllers
                         foreach (DataRow r in MainMenuNamesDT.Rows)
                         {
                             //DT.Clear();
-                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile, dic.LatinCap, dic.ArabicCap FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MainMnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
+                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile,ISNULL(Dic.LatinCap, Objects.ObjectTitle) AS LatinCap, ISNULL(Dic.LatinCap, Objects.ObjectTitle) AS ArabicCap  FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MainMnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
                             DT.TableName = r["MainMnuName"].ToString();
+                            //int x =Int32.Parse( r["ObjectID"].ToString());
+                            //string y = r["LatinCap"].ToString();
                             foreach (DataRow item in MenuDic.Rows)
                             {
                                 if (r["MainMnuName"].ToString() == item["FieldName"].ToString())
@@ -317,7 +324,16 @@ namespace MIS_2019.Controllers
                             }
                             report_ds.Tables.Add(DT);//this dataset save all submenu and name the table with name of menu name  
                             List<string> list2 = DT.AsEnumerable().Select(t => t.Field<string>("LatinCap")).ToList();
-                            RPT.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2 });
+                           
+
+                           
+                            foreach (DataRow item in DT.Rows)
+                            {
+                                Rpt_dic.Add(Int32.Parse( item["ObjectID"].ToString()), item["LatinCap"].ToString());
+                            }
+                            //DT.AsEnumerable().Select(row => DT.Columns.Cast<DataColumn>().ToDictionary(column => column.ColumnName, column => row["LatinCap"] as string));
+                            
+                            RPT.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2,Rep_submnu=Rpt_dic});
 
 
                         }
@@ -325,7 +341,7 @@ namespace MIS_2019.Controllers
                         foreach (DataRow r in MainMenuFormsDT.Rows)
                         {
                             //DT.Clear();
-                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile, dic.LatinCap, dic.ArabicCap FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MainMnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
+                            DT = DataTools.DLookUp(DataTools.GetConnectionStr(), "SELECT Objects.ObjectName, Objects.ObjectTitle, Objects.ObjectID, Objects.ObjectType, Objects.HlpHtmlFile,ISNULL(Dic.LatinCap, Objects.ObjectTitle) AS LatinCap, ISNULL(Dic.LatinCap, Objects.ObjectTitle) AS ArabicCap  FROM Objects INNER JOIN (SELECT DISTINCT TOP 100 PERCENT ObjectID, UserName FROM UserRights WHERE (CanRun = 1) ORDER BY ObjectID, UserName) UR ON UR.ObjectID=Objects.ObjectID LEFT OUTER JOIN dic ON dic.FieldName = Objects.ObjectTitle ", "", "MainMnuName= '" + r["MainMnuName"].ToString() + "' AND UR.UserName='" + Session["UserName"] + "' AND Objects.Visible=1 AND Objects.MenuHidden=0", "", "", "MenuIndex", 0);
                             DT.TableName = r["MainMnuName"].ToString();
                             foreach (DataRow item in MainMenuDic.Rows)
                             {
@@ -338,7 +354,11 @@ namespace MIS_2019.Controllers
                             }
                             form_ds.Tables.Add(DT);
                             List<string> list2 = DT.AsEnumerable().Select(t => t.Field<string>("LatinCap")).ToList();
-                            FRM.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2 });
+                            foreach (DataRow item in DT.Rows)
+                            {
+                                Frm_dic.Add(Int32.Parse(item["ObjectID"].ToString()), item["LatinCap"].ToString());
+                            }
+                            FRM.Add(new MainMenuModel { MnuName = DT.TableName.ToString(), SubMainName = list2,Frm_submnu=Frm_dic });
 
 
                         }

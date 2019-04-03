@@ -15,54 +15,83 @@ using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using System.Web.Caching;
 using System.IO;
+using System.Globalization;
 
 namespace MIS_2019.Controllers
 {[LogActionFilter]
     public class ReportController : Controller
 
         //taha 2019
-    {//note: most of this controller method(which deal with DB) should be moved to api as planning in archtecture but we put them here for fast testing 
-        JEDMISDBEntities db = new JEDMISDBEntities();
+    {
+        //note: most of this controller method(which deal with DB) should be moved to api as planning in archtecture but we put them here for fast testing 
+        //JEDMISDBEntities db = new JEDMISDBEntities();
+        DataTable dtObject = new DataTable();
         public long _ReportID, _RepDest;
         public string _RepCap, _RepTitle, _RepCriteria, _RepSort, _RepLan;
         DataSet dsReport = new DataSet();
-        Objects Obj = new Objects();
+        //Objects Obj = new Objects();
         ReportDocument rpt = new ReportDocument();
+        List<string> ddlFields = new List<string>();
 
         //    List<Paramters> parameters = new List<Paramters>() {
         //    new Paramters {RepID=1,RepPath="path1",RepDest=0,RepCriteria="crit1",RepCap="cap1" },
         //     new Paramters {RepID=2,RepPath="path2",RepDest=0,RepCriteria="crit2",RepCap="cap2" }
         //};
-      
+
         // GET: Report
         public ActionResult ViewReport()
         {
-            ViewBag.operation = new SelectList(db.Objects, "ObjectID", "CriteriaFieldsOperators");
+            
+            //ViewBag.operation = new SelectList(db.Objects, "ObjectID", "CriteriaFieldsOperators");
             return View();
         }
         [HttpPost]
-        public JsonResult SetReport(string ReportName)
+        public JsonResult SetReport(int ReportId)
         {
-            var Criterialist = new List<string>();
-            if (!string.IsNullOrWhiteSpace(ReportName))
+            
+            Paramters par = new Paramters();
+            var ddlFields = new List<string>();
+            if ((ReportId)!=0)
             {
-                Criterialist = LoadCriteria(ReportName);
-                if (Criterialist==null)
+                ddlFields = LoadCriteria(ReportId);
+                if (ddlFields == null)
                 {
                     TempData["error"] = "no item found";
                     return null;
                 }
                 
             }
-            Session["Criterialist"] = Criterialist;
-            return Json(Criterialist, JsonRequestBehavior.AllowGet);
+            Load_Parameter(ReportId);
+            par.RepCriteria = Session["CriteriaCap"].ToString();
+            par.RepCriteria_val = Session["Criteria"].ToString();
+            //Session["Criterialist"] = Criterialist;
+            par.Criterialist = ddlFields;
+            return Json(par, JsonRequestBehavior.AllowGet);
             
         }
-        public List<string> LoadCriteria(string MenuTitle) {
+        public List<string> LoadCriteria(int obid) {
+            DataTable dtObject = new DataTable();
             var Criteria = new List<string>();
-            var query = db.Objects.Where(x => x.MenuTitle == MenuTitle).FirstOrDefault();
-            return query.CriteriaFields.Split(';').ToList();
+            SqlDataAdapter daObject = new SqlDataAdapter(("SELECT * FROM Objects WHERE ObjectID=" + obid), DataTools.GetConnectionStr());
+            daObject.Fill(dtObject);
+            List<string> Criterias = dtObject.AsEnumerable().Select(t => t.Field<string>("CriteriaFields")).ToList();
+            Criterias = Criterias[0].Split(';').ToList();
+
+
+            //var query = db.Objects.Where(x => x.ObjectID == obid).FirstOrDefault();
+            return Criterias;
         }
+        [HttpPost]
+        public DataTable OpenPopup( string ddl) {
+            DataTable SearchResult = new DataTable();
+           string SQL = "SELECT ItemCode, ItemName, PartNumber From ItemsDirectory ORDER BY ItemsDirectory.ItemCode; SELECT ItemName From ItemsDirectory ORDER BY ItemName; SELECT Cat1Code,Cat1Name From ItemCategory1 ORDER BY Cat1Code; SELECT Cat1Name From ItemCategory1 ORDER BY Cat1Name; SELECT Cat2Code,Cat2Name From ItemCategory2 ORDER BY Cat2Code; SELECT Cat2Name From ItemCategory2 ORDER BY Cat2Name; SELECT Cat3Code,Cat3Name From ItemCategory3 ORDER BY Cat3Code; SELECT Cat3Name From ItemCategory3 ORDER BY Cat3Name; SELECT Cat4Code,Cat4Name From ItemCategory4 ORDER BY Cat4Code; SELECT Cat4Name From ItemCategory4 ORDER BY Cat4Name; SELECT PersonCode As VendCode,PersonName As VendName FROM Persons Where(Active=1 AND PersonType=2) Order By PersonCode; SELECT PartNumber From ItemsDirectory ORDER BY PartNumber; SELECT GroupID, ItemGroup FROM ItemsGroups ORDER BY GroupID; SELECT ManufacturerCode,Manufacturer FROM Manufacturers ORDER BY ManufacturerCode; Select BranchCode, BranchName From BranchCodes Order By BranchCode;";
+
+            SqlDataAdapter daObject = new SqlDataAdapter((SQL), DataTools.GetConnectionStr());
+            daObject.Fill(SearchResult);
+            return SearchResult;
+
+        }
+
         public JsonResult GetCriteria()
         {
             List<string> listitems =new List<string>();
@@ -79,26 +108,26 @@ namespace MIS_2019.Controllers
 
             return Json(listitems, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
-        public JsonResult GetOperation(string Criteria)
-        {
-            //Criteria = Criteria.Replace("\n", string.Empty);
+        //[HttpPost]
+        //public JsonResult GetOperation(string Criteria)
+        //{
+        //    //Criteria = Criteria.Replace("\n", string.Empty);
         
-            var operation = new List<string>();
-            if (!string.IsNullOrWhiteSpace(Criteria))
-            {
+        //    var operation = new List<string>();
+        //    if (!string.IsNullOrWhiteSpace(Criteria))
+        //    {
 
-              operation =  Loadoperation(Criteria);//to get list of operation depend on selected coloumns
+        //      operation =  Loadoperation(Criteria);//to get list of operation depend on selected coloumns
 
-            }
-            return Json(operation, JsonRequestBehavior.AllowGet);
-        }
-        public List<string> Loadoperation(string crit)
-        {
-            var Criteria = new List<string>();
-            var query = db.Objects.Where(x => x.ObjectTitle == crit).FirstOrDefault();
-            return query.CriteriaFieldsOperators.Split(';').ToList();
-        }
+        //    }
+        //    return Json(operation, JsonRequestBehavior.AllowGet);
+        //}
+        //public List<string> Loadoperation(string crit)
+        //{
+        //    var Criteria = new List<string>();
+        //    var query = db.Objects.Where(x => x.ObjectTitle == crit).FirstOrDefault();
+        //    return query.CriteriaFieldsOperators.Split(';').ToList();
+        //}
 
         //[HttpGet]
         //public JsonResult Get(int id)
@@ -196,23 +225,9 @@ namespace MIS_2019.Controllers
             //}
         }
 
-        private void Preview()
-        {
-
-            int i;
-            //Viewer.ReportSource = rpt;
-            //Viewer.DataBind();
-            rpt.SetDataSource(dsReport);
-        
-            for (i = 0; (i <= (rpt.ReportDefinition.Sections.Count - 1)); i++)
-            {
-                //rpt.ReportDefinition.Sections[i].SectionFormat.EnableSuppress = rpt.ReportDefinition.Sections[i].SectionFormat.EnableSuppress
-                // Response.Write(rpt.ReportDefinition.Sections[i].Name)
-            }
-
-        }
-       
     
+       
+    //----------------------------------- converted from ASP.net ---------------------------//
         void PrintReport()
         {
             rpt.PrintToPrinter(1, true, 0, 0);
@@ -244,7 +259,16 @@ namespace MIS_2019.Controllers
             if ((bool)dtObject.Rows[0]["ConnectToSQL"])
             {
                 SetReportConnections(dtObject);
-                rpt.VerifyDatabase();
+                try
+                {
+                    rpt.VerifyDatabase();
+                }
+                catch 
+                {
+
+                    
+                }
+                
             }
 
             ReadCriteria(ref Criteria ,ref CritFormula, dtObject);
@@ -257,14 +281,15 @@ namespace MIS_2019.Controllers
                 }
 
                 SqlDataAdapter daReport = new SqlDataAdapter(SQL, DataTools.GetConnectionStr());
-                if ((SQL.IndexOf("@Crit")+1== 0))
+                if ((SQL.IndexOf("@Crit") + 1 == 0))
                 {
                     daReport.Fill(dsReport, dtObject.Rows[0]["Source"].ToString());
                 }
-                else
-                {
-                    rpt.SetParameterValue(SQL, Criteria);
-                }
+            }
+            else
+            {
+                rpt.SetParameterValue(SQL, Criteria);
+            }
 
                 if ((CritFormula != ""))
                 {
@@ -425,7 +450,7 @@ namespace MIS_2019.Controllers
                             rpt.DataDefinition.FormulaFields["Issuedby"].Text = ("'"+ (DataTools.GetUserName() + "'"));
                         }
 
-                    }
+                 
 
                 }
 
@@ -602,26 +627,28 @@ namespace MIS_2019.Controllers
         }
         void SetReportConnections( DataTable dtObject)
         {
-            int i;
+            int i;  SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(DataTools.GetConnectionStr());
             for (i = 0; (i <= (rpt.Database.Tables.Count - 1)); i++)
             {
                 if ((bool)dtObject.Rows[0]["ConnectToSQL"])
                 {
 
-                    //TableLogOnInfo Tlogin;
-                    //Tlogin = rpt.Database.Tables[i].LogOnInfo;
-                    //Tlogin.ConnectionInfo.DatabaseName = DataTools.GetConfigSetting("DatabaseName");
-                    //Tlogin.ConnectionInfo.ServerName = DataTools.GetConfigSetting("ServerName");
-                    //Tlogin.ConnectionInfo.Password = DataTools.GetConfigSetting("Pwd");
-                    //Tlogin.ConnectionInfo.UserID = DataTools.GetConfigSetting("UserID");
-                    //// Tlogin.ConnectionInfo.IntegratedSecurity = False
-                    //Tlogin.ConnectionInfo.IntegratedSecurity = false;
-                    //rpt.Database.Tables[i].ApplyLogOnInfo(Tlogin);
-                    string DatabaseName = DataTools.GetConfigSetting("DatabaseName");
-                    string ServerName = DataTools.GetConfigSetting("ServerName");
-                    string Password = DataTools.GetConfigSetting("Pwd");
-                    string UserID = DataTools.GetConfigSetting("UserID");
-                    rpt.SetDatabaseLogon(UserID,Password,ServerName,DatabaseName,true);
+                    TableLogOnInfo Tlogin;
+                    Tlogin = rpt.Database.Tables[i].LogOnInfo;
+                  
+                   
+                    Tlogin.ConnectionInfo.DatabaseName = builder.InitialCatalog.ToString();
+                    Tlogin.ConnectionInfo.ServerName = builder.DataSource.ToString();
+                    Tlogin.ConnectionInfo.Password = builder.Password.ToString();
+                    Tlogin.ConnectionInfo.UserID = builder.UserID.ToString();
+                    // Tlogin.ConnectionInfo.IntegratedSecurity = False
+                    Tlogin.ConnectionInfo.IntegratedSecurity = false;
+                    rpt.Database.Tables[i].ApplyLogOnInfo(Tlogin);
+                    //string DatabaseName = DataTools.GetConfigSetting("DatabaseName");
+                    //string ServerName = DataTools.GetConfigSetting("ServerName");
+                    //string Password = DataTools.GetConfigSetting("Pwd");
+                    //string UserID = DataTools.GetConfigSetting("UserID");
+                    //rpt.SetDatabaseLogon(UserID, Password, ServerName, DatabaseName, true);
                 }
                 else
                 {
@@ -630,31 +657,31 @@ namespace MIS_2019.Controllers
 
             }
 
-            //ReportDocument SubRep;
-            //for (i = 0; (i <= (rpt.Subreports.Count - 1)); i++)
-            //{
-            //    SubRep = rpt.Subreports[i];
-            //    for (int k = 0; (k <= (SubRep.Database.Tables.Count - 1)); k++)
-            //    {
-            //        if ((bool)dtObject.Rows[0]["ConnectToSQL"])
-            //        {
-            //            TableLogOnInfo Tlogin;
-            //            Tlogin = SubRep.Database.Tables[k].LogOnInfo;
-            //            Tlogin.ConnectionInfo.DatabaseName = DataTools.GetConfigSetting("DatabaseName");
-            //            Tlogin.ConnectionInfo.ServerName = DataTools.GetConfigSetting("ServerName");
-            //            Tlogin.ConnectionInfo.Password = DataTools.GetConfigSetting("Pwd");
-            //            Tlogin.ConnectionInfo.UserID = DataTools.GetConfigSetting("UserID");
-            //            Tlogin.ConnectionInfo.IntegratedSecurity = false;
-            //            SubRep.Database.Tables[k].ApplyLogOnInfo(Tlogin);
-            //        }
-            //        else
-            //        {
-            //            SubRep.Database.Tables[k].SetDataSource(dsReport.Tables[rpt.Database.Tables[k].Name]);
-            //        }
+            ReportDocument SubRep;
+            for (i = 0; (i <= (rpt.Subreports.Count - 1)); i++)
+            {
+                SubRep = rpt.Subreports[i];
+                for (int k = 0; (k <= (SubRep.Database.Tables.Count - 1)); k++)
+                {
+                    if ((bool)dtObject.Rows[0]["ConnectToSQL"])
+                    {
+                        TableLogOnInfo Tlogin;
+                        Tlogin = SubRep.Database.Tables[k].LogOnInfo;
+                        Tlogin.ConnectionInfo.DatabaseName = builder.InitialCatalog.ToString();
+                        Tlogin.ConnectionInfo.ServerName = builder.DataSource.ToString();
+                        Tlogin.ConnectionInfo.Password = builder.Password.ToString();
+                        Tlogin.ConnectionInfo.UserID = builder.UserID.ToString();
+                        Tlogin.ConnectionInfo.IntegratedSecurity = false;
+                        SubRep.Database.Tables[k].ApplyLogOnInfo(Tlogin);
+                    }
+                    else
+                    {
+                        SubRep.Database.Tables[k].SetDataSource(dsReport.Tables[rpt.Database.Tables[k].Name]);
+                    }
 
-            //    }
+                }
 
-            //}
+            }
 
         }
         string ApplyBranchPermissions(DataTable dtObj)
@@ -871,7 +898,7 @@ namespace MIS_2019.Controllers
                Request.UrlReferrer.AbsolutePath,
                StringComparison.CurrentCultureIgnoreCase) == 0;
 
-            return isPost && isSameUrl;
+            return isPost ;
         }
         private void ExportReport(string FileName, ExportFormatType FileFormat)
         {
@@ -887,15 +914,130 @@ namespace MIS_2019.Controllers
             rpt.Dispose();rpt.Close();
 
         }
+        private void Load_Parameter( long RepID)
+        {
+            string strTmp;
+            string[] arrTmp;
+            List<string> ddlLink = new List<string>();
+            List<string> lstCriteria = new List<string>();
+            
+             DataSet dsDic = new DataSet();
+            Paramters rep_par = new Paramters();
+             SqlDataAdapter daObject = new SqlDataAdapter(("SELECT ObjectTitle, UseAndOnly,ByBranch,CriteriaFields,CriteriaFieldsCaptions,SortFieldsList,Criteria" +"FieldsUnique,CriteriaFieldsTypes,CriteriaFieldsOperators,CriteriaFieldsSources FROM Objects WHERE ObjectID=" + RepID), DataTools.GetConnectionStr());
+                Session["ReportID"] = RepID;
+                daObject.Fill(dtObject);
+                Session["dtObject"] = dtObject;
+                 rep_par.RepTitle = dtObject.Rows[0]["ObjectTitle"].ToString();
+               
+                strTmp = ((dtObject.Rows[0]["CriteriaFields"].ToString())==null ? "" : dtObject.Rows[0]["CriteriaFields"].ToString()).Replace("\r\n", "");
+                arrTmp = strTmp.Split(';');
+                string[] arrtmp2 =(string[]) arrTmp.Clone();
+                for (int i = 0; (i<= (arrtmp2.Length - 1)); i++)
+                {
+                    if ((DataTools.GetStrPart(DataTools.ReadField(dtObject.Rows[0]["CriteriaFieldsCaptions"]), i) != ""))
+                    {
+                        arrtmp2[i] = DataTools.GetStrPart(DataTools.ReadField(dtObject.Rows[0]["CriteriaFieldsCaptions"]), i);
+                    }
+
+                }
+
+            strTmp = string.Join(";", arrtmp2);
+            dsDic = DataTools.GetDic(strTmp);
+            strTmp = "";
+            for (int i = 0; (i <= (arrTmp.Length - 1)); i++)
+            {
+                strTmp = "";
+                foreach (DataRow dr in dsDic.Tables[0].Rows)
+                {
+                    if ((dr[0].ToString() == arrtmp2[i]))
+                    {
+                        strTmp = dr["LatinCap"].ToString();
+                        break;
+                    }
+
+                }
+
+                ddlFields.Add(((strTmp == "") ? arrTmp[i] : strTmp));
+            }
+
+            ddlLink.Add("AND");
+            if (!(bool)dtObject.Rows[0]["UseAndOnly"])
+            {
+                ddlLink.Add("OR");
+            }
+
+            DataTable dtCrit = new DataTable();
+            Session["Criteria"] = "";
+            Session["CriteriaCap"] = "";
+            dtCrit = DataTools.DLookUp(DataTools.GetConnectionStr(), "UsersRecent", "Criteria", ("UserName='" + (DataTools.GetUserName() + ("' AND ObjectID=" + RepID))),"","", "AccessDate DESC", 1);
+           
+            if ((dtCrit.Rows.Count > 0))
+            {
+                string CritFromTbl = dtCrit.Rows[0][0].ToString();
+                if (CritFromTbl != null && (CritFromTbl.Trim() != ""))
+                {
+
+                    arrTmp = CritFromTbl.ToString().Split(';');
+                    for (int i = 0; (i <= (arrTmp.Length - 1)); i++)
+                    {
+                        ValidateLine(DataTools.GetStrSerial(dtObject.Rows[0]["CriteriaFields"].ToString(), DataTools.GetStrPart(arrTmp[i], 0, "^^^")), DataTools.GetStrPart(arrTmp[i], 1, "^^^"), DataTools.GetStrPart(arrTmp[i], 2, "^^^"), DataTools.GetStrPart(arrTmp[i], 3, "^^^"), DataTools.GetStrPart(arrTmp[i], 4, "^^^"),ref strTmp);
+                        lstCriteria.Add(DataTools.GetStrPart(Session["CriteriaCap"].ToString(), i));
+                        //Session["lstCriteria"] = (DataTools.GetStrPart(Session["Criteria"].ToString(), i));
+                        //Session["criteria_val"] = (DataTools.GetStrPart(Session["CriteriaCap"].ToString(), i));
+                    }
+
+                }
+
+            }
 
 
+        }
+        public bool ValidateLine(int Index, string Op, string Value, string Sort, string Link, ref string Output)
+        {
+            DateTime dtf;
+            string CriteriaCap="", Criteria="";
+            string Ops = DataTools.GetStrPart(DataTools.ReadField(dtObject.Rows[0]["CriteriaFieldsOperators"]), Index);
+            string Unqs = DataTools.GetStrPart(DataTools.ReadField(dtObject.Rows[0]["CriteriaFieldsUnique"]), Index);
+            string FldType = DataTools.GetStrPart(DataTools.ReadField(dtObject.Rows[0]["CriteriaFieldsTypes"]), Index);
+            string Fld = DataTools.GetStrPart(DataTools.ReadField(dtObject.Rows[0]["CriteriaFields"]), Index);
+            if ((Index == -1))
+            {
+                Output = "Please select a field.";
+                goto Insert_Err;
+            }
+            else if (((Ops != "") && (DataTools.GetStrSerial(Ops, Op) < 0)))
+            {
+                Output = ("Operator must be " + Ops);
+                goto Insert_Err;
+            }
+            else if (((Value == "") && ((Sort == " ") || (Sort == ""))))
+            {
+                Output = "Please enter a valid value for field.";
+                goto Insert_Err;
+            }
+            else if (((FldType.Trim() == "7") &&!DateTime.TryParse(Value, out dtf)))
+            {
+                Output = "Invalid Date.";
+                goto Insert_Err;
+            }
+            else if ((((FldType.Trim() == "7")|| (FldType.Trim() == "3")) && (Op == "Like")))
+            {
+                Output = "Like operator is used with string fields only.";
+                goto Insert_Err;
+            }
+            //Output = ddlFields.Items(Index).Text + " " + Op + " " + Value + " " + Link
+            Output = (ddlFields[Index] + (" " + (Op + (" " + (Value + (" " + Link))))));
+            Session["CriteriaCap"] = (Session["CriteriaCap"]+ (((Session["CriteriaCap"].ToString() == "") ? "" : ";") + Output));
+            CriteriaCap = CriteriaCap + (((CriteriaCap == "") ? "" : ";") + Output);
+            Output = (Fld + ("^^^" + (Op + ("^^^" + (Value + ("^^^"+ (Sort + ("^^^" + Link))))))));
+            Session["Criteria"] = (Session["Criteria"]+ (((Session["Criteria"].ToString() == "") ? "" : ";") + Output));
+            Criteria = (Criteria+ (((Criteria == "") ? "" : ";") + Output));
+            return true;
 
-     
-       
+            Insert_Err:
+            return false;
+        }
 
-
-       
-
-       
+     //
     }
 }
